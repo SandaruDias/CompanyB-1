@@ -1,4 +1,5 @@
-import { Typography } from "@material-ui/core";
+import { Container, CssBaseline, Typography } from "@material-ui/core";
+import FileUploadform from "./FileUploadform";
 
 
 // Define components for different pages
@@ -11,7 +12,12 @@ export function DashboardPage() {
 }
 
 export function SamplePage() {
-    return <Typography variant="h5">tharumaln</Typography>;
+    return(
+        <Container component="main" maxWidth="xs">
+            <CssBaseline/>
+            <FileUploadform/>
+        </Container>
+    );
 }
 
 export function ProfilePage() {
