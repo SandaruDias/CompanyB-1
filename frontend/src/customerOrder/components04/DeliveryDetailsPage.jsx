@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export function DeliveryDetailsPage() {
+export function DeliveryDetailsPage({setPage}) {
     const classes = useStyles();
     const [designChecked1, setDesignChecked1] = useState(false);
     const [designChecked2, setDesignChecked2] = useState(false);
@@ -24,7 +24,7 @@ export function DeliveryDetailsPage() {
     const onSubmitForm = ()=>{
         var isValid = true;
         if(isValid){
-            navigate('/checkout-details')
+            setPage(2);
         }
     }
 

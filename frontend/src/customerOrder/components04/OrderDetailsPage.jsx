@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Typography, Grid, TextField, Box, makeStyles, Button, Checkbox } from "@material-ui/core";
 import { useNavigate } from 'react-router-dom';
+import { DeliveryDetailsPage } from './DeliveryDetailsPage';
+import { CheckoutDetailsPage } from './CheckoutDetailsPage';
 
 const useStyles = makeStyles((theme) => ({
     smallBox: {
@@ -19,12 +21,13 @@ export function DashboardPage() {
     const classes = useStyles();
     const [designChecked1, setDesignChecked1] = useState(false);
     const [designChecked2, setDesignChecked2] = useState(false);
+    const [page, setPage] = useState(0);
     const navigate = useNavigate();
 
     const onSubmitForm = ()=>{
         var isValid = true;
         if(isValid){
-            navigate('/delivery-details')
+            setPage(1);
         }
     }
 
@@ -36,61 +39,64 @@ export function DashboardPage() {
     };
 
     return (
-        <>
-         <br></br>
-         <br></br>
-            <Typography variant="h5">Order Details</Typography>
-            <br></br>
-            <input type="file" />
+        <>{
+            page === 0 ?         <>
             <br></br>
             <br></br>
-            <br></br>
-            <Grid container spacing={2} alignItems="center">
-                <Typography variant="h6">Layers</Typography>
-                <Grid item>
-                    <TextField type="number" variant="outlined" />
-                </Grid>
-                <Grid item>
-                    <TextField type="number" variant="outlined" />
-                </Grid>
-                <Grid item>
-                    <TextField type="number" variant="outlined" />
-                </Grid>
-            </Grid>
-            <br></br>
-            <Grid container spacing={2} alignItems="center">
-                <Typography variant="h6">Thickness(mm)</Typography>
-                <Grid item>
-                    <TextField type="number" variant="outlined" />
-                </Grid>
-            </Grid>
-            <br></br>
-            <Grid container spacing={2} alignItems="center">
-                <Typography variant="h6">Dimensions(mm<sup>2</sup>)</Typography>
-                <Grid item>
-                    <TextField type="number" variant="outlined" />
-                </Grid>
-                <Typography variant="h6">*</Typography>
-                <Grid item>
-                    <TextField type="number" variant="outlined" />
-                </Grid>
-            </Grid>
-            <br></br>
-            <br></br>
-            <Button variant="contained" color="primary" onClick={onSubmitForm} className={classes.submitButton}>
-                Submit
-            </Button>
-            <br></br>
-            <br></br>
-            <div style={{display:'flex'}} >
-            <Typography variant="h6">Design check</Typography>
-            <Checkbox checked={designChecked1} onChange={handleDesignCheck1} />
-            </div>
-            <br></br>
-<div  style={{display:'flex'}}>
-<Typography variant="h6">purts check</Typography>
-            <Checkbox checked={designChecked2} onChange={handleDesignCheck2} />
-</div>
+               <Typography variant="h5">Order Details</Typography>
+               <br></br>
+               <input type="file" />
+               <br></br>
+               <br></br>
+               <br></br>
+               <Grid container spacing={2} alignItems="center">
+                   <Typography variant="h6">Layers</Typography>
+                   <Grid item>
+                       <TextField type="number" variant="outlined" />
+                   </Grid>
+                   <Grid item>
+                       <TextField type="number" variant="outlined" />
+                   </Grid>
+                   <Grid item>
+                       <TextField type="number" variant="outlined" />
+                   </Grid>
+               </Grid>
+               <br></br>
+               <Grid container spacing={2} alignItems="center">
+                   <Typography variant="h6">Thickness(mm)</Typography>
+                   <Grid item>
+                       <TextField type="number" variant="outlined" />
+                   </Grid>
+               </Grid>
+               <br></br>
+               <Grid container spacing={2} alignItems="center">
+                   <Typography variant="h6">Dimensions(mm<sup>2</sup>)</Typography>
+                   <Grid item>
+                       <TextField type="number" variant="outlined" />
+                   </Grid>
+                   <Typography variant="h6">*</Typography>
+                   <Grid item>
+                       <TextField type="number" variant="outlined" />
+                   </Grid>
+               </Grid>
+               <br></br>
+               <br></br>
+               <Button variant="contained" color="primary" onClick={onSubmitForm} className={classes.submitButton}>
+                   Submit
+               </Button>
+               <br></br>
+               <br></br>
+               <div style={{display:'flex'}} >
+               <Typography variant="h6">Design check</Typography>
+               <Checkbox checked={designChecked1} onChange={handleDesignCheck1} />
+               </div>
+               <br></br>
+   <div  style={{display:'flex'}}>
+   <Typography variant="h6">purts check</Typography>
+               <Checkbox checked={designChecked2} onChange={handleDesignCheck2} />
+   </div>
+           </>: page === 1 ? <DeliveryDetailsPage setPage={setPage} /> : <CheckoutDetailsPage setPage={setPage} />
+        }
         </>
     )
 }
