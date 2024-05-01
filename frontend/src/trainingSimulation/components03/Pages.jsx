@@ -11,7 +11,7 @@ export function DashboardPage() {
 }
 
 export function SamplePage() {
-    return <Typography variant="h5">Resume Page Content Training & Simulation</Typography>;
+    return <Typography variant="h5">tharumaln</Typography>;
 }
 
 export function ProfilePage() {
