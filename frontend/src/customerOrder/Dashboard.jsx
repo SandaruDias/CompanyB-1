@@ -22,7 +22,7 @@ import {
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
-import { DashboardPage, ProfilePage, SamplePage,LogoutPage } from "./components04/Pages";
+import { DashboardPage, ProfilePage, SamplePage,LogoutPage } from "./components04/OrderDetailsPage";
 
 // Define styles
 const useStyles = makeStyles((theme) => ({
