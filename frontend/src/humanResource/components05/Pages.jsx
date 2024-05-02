@@ -1,23 +1,45 @@
+import React from "react";
 import { Typography } from "@material-ui/core";
-
+import SamplePageForm from "./SamplePageForm";
+import ApplicationForm from "./ApplicationForm";
+import EmployeeData from "./EmployeeData";
+import EditEmployeePage from "./EditEmployeePage";
 
 // Define components for different pages
 export function DashboardPage() {
     return (
         <>
-            <Typography variant="h5">Home Page Content Human Resource Management</Typography>
+        <Typography variant="h5">Contacts Page Content</Typography>;
+        <EmployeeData />
+            
         </>
     )
 }
 
 export function SamplePage() {
-    return <Typography variant="h5">Resume Page Content Human Resource Management</Typography>;
+    return (
+        <>
+            <SamplePageForm /> 
+        </>
+    );
 }
 
 export function ProfilePage() {
-    return <Typography variant="h5">Portfolio Page Content</Typography>;
+    return (
+        <>
+            <ApplicationForm /> 
+        </>
+    );
 }
 
 export function LogoutPage() {
     return <Typography variant="h5">Contacts Page Content</Typography>;
+}
+
+export function NewPage() {
+    return (
+        <>
+            <EditEmployeePage /> 
+        </>
+    );
 }
