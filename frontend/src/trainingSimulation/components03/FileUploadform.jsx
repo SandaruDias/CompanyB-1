@@ -1,12 +1,24 @@
 import {  useState} from "react";
-import { Box, Button,TextField, Typography } from '@mui/material';
-import SimpleAlert from "./alert";
-import { Snackbar } from "@material-ui/core";
+import { Box, Button,TextField, Typography,Alert,Snackbar } from '@mui/material';
+
 
 function FileUploadform(){
     const [name,setName]=useState('');
     const [email,setEmail] =useState('');
     const [file,setFile] =useState(null);
+    const [alertInfo,setAlertInfo] = useState({
+        open :false,
+        Message: "",
+        severity:"info"
+        });
+    
+    const handleCloseAlert = (event,reason)=> {
+        if (reason==="clickaway"){
+            return;
+        }
+        setAlertInfo({...alertInfo,open : false});
+    };
+        
     
 
     //Change of name
@@ -35,13 +47,21 @@ function FileUploadform(){
     const handleSubmit = (event)=> {
         event.preventDefault();
         if(!file){
-            alert("Please upload a file.");
+            setAlertInfo({open:true,Message:"Please enter a file.",severity:"error"});
+            return;
+        }
+        if(!name){
+            setAlertInfo({open:true,Message:"Please enter a name.",severity:"error"});
+            return;
+        }
+        if(!email){
+            setAlertInfo({open:true,Message:"Please enter an email.",severity:"error"});
             return;
         }
         console.log('Name:',name);
         console.log("Email:",email);
         console.log('Uploading:',file.name);
-        alert("Successfully Submitted.")
+        setAlertInfo({open:true,Message:"Successfully submitted !!",severity:"success"});
     };
 
 
@@ -91,6 +111,12 @@ function FileUploadform(){
                 </Button>
             </Box>
             {file && <Typography>{file.name}</Typography>}
+            
+            <Snackbar open ={alertInfo.open} autoHideDuration={6000} onClose={handleCloseAlert}>
+                <Alert onClose={handleCloseAlert} severity = {alertInfo.severity} sx={{width:"100%"}}>
+                    {alertInfo.Message}
+                </Alert>
+            </Snackbar>
             <Button 
             type="submit" variant="contained" color="primary" >
                 Upload Design
