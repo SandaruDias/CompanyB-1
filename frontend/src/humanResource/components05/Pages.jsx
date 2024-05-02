@@ -9,7 +9,7 @@ import EditEmployeePage from "./EditEmployeePage";
 export function DashboardPage() {
     return (
         <>
-        <Typography variant="h5">Contacts Page Content</Typography>;
+        <Typography variant="h5">Contacts</Typography>;
         <EmployeeData />
             
         </>
