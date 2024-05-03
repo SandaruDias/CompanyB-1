@@ -6,6 +6,7 @@ import { addDays } from 'date-fns'
 
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
+import "./styles.css";
 
 const DateRangePickerComp = () => {
     
@@ -49,8 +50,7 @@ const DateRangePickerComp = () => {
     
     return(
         <div className="calendarWrap">
-
-            <input
+            <input 
               value={`${format(range[0].startDate,"MM/dd/yyyy")} to ${format(range[0].endDate,"MM/dd/yyyy")} `}
               readOnly
               className = "inputBox"
