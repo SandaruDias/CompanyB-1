@@ -17,13 +17,15 @@ import {
 } from "@material-ui/core";
 import {
   Menu,
-  AssignmentInd
+  AssignmentInd,
+  DateRange
 } from "@material-ui/icons";
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
 import { DashboardPage, ProfilePage, SamplePage,LogoutPage } from "./components08/Pages";
 
+import DateRangePickerComp from "./components08/DateRangePickerComp.jsx";
 // Define styles
 const useStyles = makeStyles((theme) => ({
   menuSliderContainer: {
@@ -45,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function Dashboard() {
+  
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [selectedPage, setSelectedPage] = useState("Dashboard");
@@ -118,13 +121,20 @@ export default function Dashboard() {
             <Drawer open={open} anchor="right" onClose={toggleSlider}>
               {sideList()}
             </Drawer>
-            
+          
           </Toolbar>
         </AppBar>
       </Box>
       <Box style={{ padding: 20 }}>
         {renderSelectedPage()}
       </Box>
+      <DateRangePickerComp/>
+      
     </>
   );
+  
+
+ 
 }
+
+
