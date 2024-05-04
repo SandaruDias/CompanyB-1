@@ -22,8 +22,7 @@ import {
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
-import { DashboardPage, ProfilePage, SimulationsPage,LogoutPage } from "./components03/Pages";
-import RecipeReviewCard from "./components03/RecipeReviewCard";
+import { DashboardPage, ProfilePage, SamplePage,LogoutPage } from "./components03/Pages"
 
 
 // Define styles
@@ -43,6 +42,8 @@ const useStyles = makeStyles((theme) => ({
     color: "white"
   }
 }));
+
+
 
 export default function Dashboard() {
   const classes = useStyles();
@@ -69,8 +70,8 @@ export default function Dashboard() {
       <List>
         {[
           { Icon: DashboardIcon, text: "Dashboard" },
-          { Icon: AssignmentInd, text: "Simulations" },
-          { Icon: PersonIcon, text: "Training" },
+          { Icon: AssignmentInd, text: "Sample" },
+          { Icon: PersonIcon, text: "Profile" },
           { Icon: LogoutIcon, text: "Log out" }
         ].map((item, index) => (
           <ListItem
@@ -94,9 +95,9 @@ export default function Dashboard() {
     switch (selectedPage) {
       case "Dashboard":
         return <DashboardPage />;
-      case "Simulations":
-        return <SimulationsPage />;
-      case "Training":
+      case "Sample":
+        return <SamplePage />;
+      case "Profile":
         return <ProfilePage />;
       case "Log Out":
         return <LogoutPage />;
@@ -124,7 +125,6 @@ export default function Dashboard() {
       </Box>
       <Box style={{ padding: 20 }}>
         {renderSelectedPage()}
-        
       </Box>
     </>
   );
