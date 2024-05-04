@@ -4,12 +4,15 @@ import SamplePageForm from "./SamplePageForm";
 import ApplicationForm from "./ApplicationForm";
 import EmployeeData from "./EmployeeData";
 import EditEmployeePage from "./EditEmployeePage";
+import AdministratorData from "./AdministratorData";
+import ApplicatData from "./ApplicatData";
 
 // Define components for different pages
 export function DashboardPage() {
     return (
         <>
-        <EmployeeData />
+        <Typography variant="h5">Contacts Page Content</Typography>;
+        
             
         </>
     )
@@ -51,7 +54,8 @@ export function AttendancePage() {
 export function EmployeeDataPage() {
     return (
         <>
-            <Typography variant="h5">Employee Data</Typography> 
+            
+            <EmployeeData />
         </>
     );
 }
@@ -59,7 +63,8 @@ export function EmployeeDataPage() {
 export function AdministratorDataPage() {
     return (
         <>
-            <Typography variant="h5">Administrator Data</Typography>
+            
+            <AdministratorData />
         </>
     );
 }
@@ -67,7 +72,8 @@ export function AdministratorDataPage() {
 export function ApplicantDataPage() {
     return (
         <>
-            <Typography variant="h5">APplicant Data</Typography>
+            
+            <ApplicatData />
         </>
     );
 }

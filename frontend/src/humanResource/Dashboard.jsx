@@ -132,8 +132,8 @@ export default function Dashboard() {
             <IconButton onClick={toggleSlider}>
               <Menu />
             </IconButton>
-            <div style={{ flexGrow: 1, textAlign: "center" }}>
-              <Typography variant="h6">
+            <div style={{ flexGrow: 1, textAlign: "center" , fontFamily: "Roboto" }}>
+              <Typography variant="h4" style={{fontFamily: "Montserrat"}}>
                 HRM - {selectedPage === "Attendance" ? "Attendance" : selectedPage.toUpperCase()}
               </Typography>
             </div>

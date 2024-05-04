@@ -47,33 +47,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const mockEmployees = [
-  { id: 1, name: "John Doe", email: "john@example.com", jobPosition: "Software Engineer", division: "IT" },
-  { id: 2, name: "Jane Smith", email: "jane@example.com", jobPosition: "HR Manager", division: "HR" },
-  // Add more mock employees as needed
+const mockAdministrators = [
+  { id: 1, name: "Admin 1", email: "admin1@example.com", jobPosition: "System Administrator", division: "IT" },
+  { id: 2, name: "Admin 2", email: "admin2@example.com", jobPosition: "Network Administrator", division: "IT" },
+  // Add more mock administrators as needed
 ];
 
-const EmployeeData = () => {
+const AdministratorData = () => {
   const classes = useStyles();
 
-  const handleEditEmployee = (id) => {
-    console.log(`Edit employee with ID ${id}`);
-  };
-
-  const handleDeleteEmployee = (id) => {
-    console.log(`Delete employee with ID ${id}`);
-    // Add logic to delete employee
-  };
-
-  const handleMakeAdministrator = (id) => {
-    console.log(`Make employee with ID ${id} as an administrator`);
-    // Add logic to make employee an administrator
+  const handleDeleteAdministrator = (id) => {
+    console.log(`Delete administrator with ID ${id}`);
+    // Add logic to delete administrator
   };
 
   return (
     <Paper className={classes.root}>
       <Typography variant="h5" className={classes.title}>
-        Employee Data
+        Administrator Data
       </Typography>
       <Paper className={classes.tableContainer}>
         <Table className={classes.table}>
@@ -83,22 +74,20 @@ const EmployeeData = () => {
               <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Name</TableCell>
               <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Email</TableCell>
               <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Job Position</TableCell>
-              <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Division</TableCell> {/* Changed column name */}
+              <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Division</TableCell>
               <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {mockEmployees.map(employee => (
-              <TableRow key={employee.id}>
-                <TableCell className={classes.tableCell}>{employee.id}</TableCell>
-                <TableCell className={classes.tableCell}>{employee.name}</TableCell>
-                <TableCell className={classes.tableCell}>{employee.email}</TableCell>
-                <TableCell className={classes.tableCell}>{employee.jobPosition}</TableCell>
-                <TableCell className={classes.tableCell}>{employee.division}</TableCell> {/* Render division instead of contact number */}
+            {mockAdministrators.map(administrator => (
+              <TableRow key={administrator.id}>
+                <TableCell className={classes.tableCell}>{administrator.id}</TableCell>
+                <TableCell className={classes.tableCell}>{administrator.name}</TableCell>
+                <TableCell className={classes.tableCell}>{administrator.email}</TableCell>
+                <TableCell className={classes.tableCell}>{administrator.jobPosition}</TableCell>
+                <TableCell className={classes.tableCell}>{administrator.division}</TableCell>
                 <TableCell className={classes.tableCell}>
-                  <Button variant="contained" color="primary" className={classes.actionButton} onClick={() => handleEditEmployee(employee.id)}>Edit</Button>
-                  <Button variant="contained" color="secondary" className={classes.actionButton} onClick={() => handleDeleteEmployee(employee.id)}>Delete</Button>
-                  <Button variant="contained" color="default" className={classes.actionButton} onClick={() => handleMakeAdministrator(employee.id)}>Make Admin</Button>
+                  <Button variant="contained" color="secondary" className={classes.actionButton} onClick={() => handleDeleteAdministrator(administrator.id)}>Delete</Button>
                 </TableCell>
               </TableRow>
             ))}
@@ -109,4 +98,4 @@ const EmployeeData = () => {
   );
 };
 
-export default EmployeeData;
+export default AdministratorData;
