@@ -45,6 +45,12 @@
     text-decoration: none;
     margin: 1rem;
     font-size: larger;
+    cursor: pointer; /* Cursor style */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+}
+  
+.card-btn:hover {
+    background-color: #005aba; /* Button background color on hover */
 }
 
 .card-input {
