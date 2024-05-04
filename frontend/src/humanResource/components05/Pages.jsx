@@ -18,6 +18,7 @@ export function DashboardPage() {
 export function SamplePage() {
     return (
         <>
+            <Typography variant="h5">Contacts Page Content</Typography>;
             <SamplePageForm /> 
         </>
     );
@@ -31,10 +32,6 @@ export function ProfilePage() {
     );
 }
 
-export function LogoutPage() {
-    return <Typography variant="h5">Contacts Page Content</Typography>;
-}
-
 export function NewPage() {
     return (
         <>
@@ -42,3 +39,41 @@ export function NewPage() {
         </>
     );
 }
+
+export function AttendancePage() {
+    return (
+        <>
+            <Typography variant="h5">Attendance Page Content</Typography>
+        </>
+    );
+}
+
+export function EmployeeDataPage() {
+    return (
+        <>
+            <Typography variant="h5">Employee Data</Typography> 
+        </>
+    );
+}
+
+export function AdministratorDataPage() {
+    return (
+        <>
+            <Typography variant="h5">Administrator Data</Typography>
+        </>
+    );
+}
+
+export function ApplicantDataPage() {
+    return (
+        <>
+            <Typography variant="h5">APplicant Data</Typography>
+        </>
+    );
+}
+
+export function LogoutPage() {
+    return <Typography variant="h5">Contacts Page Content</Typography>;
+}
+
+
