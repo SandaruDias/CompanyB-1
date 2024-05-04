@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function FileUploadform(){
+    const navigate = useNavigate();
     const [name,setName]=useState('');
     const [email,setEmail] =useState('');
     const [file,setFile] =useState(null);
@@ -63,10 +64,7 @@ function FileUploadform(){
         console.log("Email:",email);
         console.log('Uploading:',file.name);
         setAlertInfo({open:true,Message:"Successfully submitted !!",severity:"success"});
-        if(alertInfo.severity == "sucsess"){
-            Navigate("/training-simulation/dashboard");
-        }
-        
+        navigate("/training-simulation");
     };
 
 
