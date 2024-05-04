@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import {
   Typography,
   TextField,
@@ -46,11 +47,21 @@ const ApplicationForm = () => {
     }));
   };
 
-  const handleSubmit = (event) => {
+  
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Handle form submission (e.g., send data to backend API)
-    console.log(formData);
+    const apiUrl = 'http://localhost:8090/hr/applicant/add'; // Replace with your actual API URL
+
+    try {
+      const response = await axios.post(apiUrl, formData);
+      console.log('Form submitted successfully:', response.data);
+      alert('Form submitted successfully!');
+    } catch (error) {
+      console.error('Failed to submit form:', error);
+      alert('Failed to submit form.');
+    }
   };
+
 
   return (
     <>
@@ -207,11 +218,11 @@ const ApplicationForm = () => {
           </Grid>
         </Grid>
         <Button
-          type="submit"
           variant="contained"
           color="primary"
           fullWidth
           style={{ marginTop: "1rem" }}
+          type="submit"
         >
           Submit
         </Button>
