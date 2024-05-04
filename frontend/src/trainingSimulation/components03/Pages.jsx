@@ -11,7 +11,7 @@ export function DashboardPage() {
     )
 }
 
-export function SamplePage() {
+export function SimulationsPage() {
     return(
         <Container component="main" maxWidth="xs">
             <CssBaseline/>
