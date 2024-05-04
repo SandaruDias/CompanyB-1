@@ -7,9 +7,9 @@ import RecipeReviewCard from "./RecipeReviewCard";
 // Define components for different pages
 export function DashboardPage() {
     return (
-        <>
+        <div>
             <RecipeReviewCard />
-        </>
+        </div>
     )
 }
 
@@ -22,7 +22,7 @@ export function SimulationsPage() {
     );
 }
 
-export function ProfilePage() {
+export function CoursesPage() {
     return (
         <div>
             <TrainingPage />
@@ -30,6 +30,6 @@ export function ProfilePage() {
     )
 }
 
-export function LogoutPage() {
-    return <Typography variant="h5">Contacts Page Content Training & Simulation</Typography>;
+export function PrototypePage() {
+    return <Typography variant="h5">Protoyping Form</Typography>;
 }
