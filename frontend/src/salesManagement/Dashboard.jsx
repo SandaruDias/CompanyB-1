@@ -129,7 +129,7 @@ export default function Dashboard() {
         {renderSelectedPage()}
       </Box>
       <h1>
-        hello
+            Select date
       </h1>
       <DateRangePickerComp/>
       
