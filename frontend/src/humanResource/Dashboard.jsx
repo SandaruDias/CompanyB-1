@@ -22,7 +22,10 @@ import {
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
-import { DashboardPage, ProfilePage, SamplePage,LogoutPage,NewPage } from "./components05/Pages";
+import {EventAvailable} from "@material-ui/icons";
+import { Edit } from "@material-ui/icons";
+import {People, SupervisorAccount,Person} from "@material-ui/icons";
+import { DashboardPage, ProfilePage, SamplePage,LogoutPage,NewPage,AttendancePage,EmployeeDataPage,AdministratorDataPage,ApplicantDataPage } from "./components05/Pages";
 
 // Define styles
 const useStyles = makeStyles((theme) => ({
@@ -69,10 +72,14 @@ export default function Dashboard() {
       <List>
         {[
           { Icon: DashboardIcon, text: "Dashboard" },
+          { Icon: People, text: "Employee Data" }, 
+          { Icon: SupervisorAccount, text: "Administrator Data" },
+          { Icon: Person, text: "Applicant Data" },
           { Icon: AssignmentInd, text: "Employee Form" },
           { Icon: PersonIcon, text: "Application Form" },
-          { Icon: LogoutIcon, text: "Log out" },
-          { Icon: LogoutIcon, text: "Edit" }
+          { Icon: Edit, text: "Edit" },
+          { Icon: EventAvailable, text: "Attendance" }, 
+          { Icon: LogoutIcon, text: "Log out" }
         ].map((item, index) => (
           <ListItem
             className={classes.listItem}
@@ -95,14 +102,22 @@ export default function Dashboard() {
     switch (selectedPage) {
       case "Dashboard":
         return <DashboardPage />;
+      case "Employee Data": // New case
+        return <EmployeeDataPage />;
+      case "Administrator Data": // New case
+        return <AdministratorDataPage />;
+      case "Applicant Data": // New case
+        return <ApplicantDataPage />;
       case "Employee Form":
         return <SamplePage />;
       case "Application Form":
         return <ProfilePage />;
-      case "Log Out":
-        return <LogoutPage />;
       case "Edit": 
         return <NewPage />;
+      case "Attendance":
+          return <AttendancePage />;
+      case "Log Out":
+        return <LogoutPage />;
       default:
         return <DashboardPage />;
     }
@@ -117,11 +132,14 @@ export default function Dashboard() {
             <IconButton onClick={toggleSlider}>
               <Menu />
             </IconButton>
-            <Typography variant="h6">Company B</Typography>
+            <div style={{ flexGrow: 1, textAlign: "center" , fontFamily: "Roboto" }}>
+              <Typography variant="h4" style={{fontFamily: "Montserrat"}}>
+                HRM - {selectedPage === "Attendance" ? "Attendance" : selectedPage.toUpperCase()}
+              </Typography>
+            </div>
             <Drawer open={open} anchor="right" onClose={toggleSlider}>
               {sideList()}
             </Drawer>
-            
           </Toolbar>
         </AppBar>
       </Box>

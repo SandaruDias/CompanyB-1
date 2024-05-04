@@ -3,7 +3,7 @@ Please find your relevant routes for the subsystem
        ="/customer-order" 
        ="/finance-management" 
        ="/hr-management" 
-       ="/inventory-management" 
+       ="/general-management" 
        ="/manufacturing" 
        ="/quality-assurance" 
        ="/sales-management" 
