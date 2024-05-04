@@ -1,6 +1,6 @@
 import { Container, CssBaseline, Typography } from "@material-ui/core";
 import FileUploadform from "./FileUploadform";
-
+import TrainingPage from './TrainingPage/TrainingPage'
 
 // Define components for different pages
 export function DashboardPage() {
@@ -21,7 +21,11 @@ export function SimulationsPage() {
 }
 
 export function ProfilePage() {
-    return <Typography variant="h5">Portfolio Page Content Training & Simulation</Typography>;
+    return (
+        <div>
+            <TrainingPage />
+        </div>
+    )
 }
 
 export function LogoutPage() {

@@ -71,7 +71,7 @@ export default function Dashboard() {
         {[
           { Icon: DashboardIcon, text: "Dashboard" },
           { Icon: AssignmentInd, text: "Simulations" },
-          { Icon: PersonIcon, text: "Profile" },
+          { Icon: PersonIcon, text: "Training" },
           { Icon: LogoutIcon, text: "Log out" }
         ].map((item, index) => (
           <ListItem
@@ -97,7 +97,7 @@ export default function Dashboard() {
         return <DashboardPage />;
       case "Simulations":
         return <SimulationsPage />;
-      case "Profile":
+      case "Training":
         return <ProfilePage />;
       case "Log Out":
         return <LogoutPage />;
