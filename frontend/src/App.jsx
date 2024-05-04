@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import GeneralManagement from './generalManagement/Dashboard.jsx';
+import CustomerLogin from './generalManagement/customerlogin.jsx';
+import Dashboard from "./generalManagement/Dashboard.jsx";
+import Register from "./generalManagement/registercustomer.jsx";
 import Inventory from './InventoryStocks/Dashboard.jsx'
 import CustomerOrder from './customerOrder/Dashboard.jsx';
 import Finance from './financeManagement/Dashboard.jsx';
@@ -13,8 +15,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/general-management" element={<GeneralManagement />} />
+        <Route path="/general-management" element={<CustomerLogin />} />
         <Route path="/inventory-management" element={<Inventory />} />
+        <Route path="/general-management/dashboard" element={<Dashboard />} />
+        <Route path="/general-management/signup" element = {<Register />} />
         <Route path="/customer-order" element={<CustomerOrder />} />
         <Route path="/finance-management" element={<Finance />} />
         <Route path="/hr-management" element={<Inventory />} />
