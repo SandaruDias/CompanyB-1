@@ -1,5 +1,6 @@
 import {  useState} from "react";
 import { Box, Button,TextField, Typography,Alert,Snackbar } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 
 
 function FileUploadform(){
@@ -62,6 +63,10 @@ function FileUploadform(){
         console.log("Email:",email);
         console.log('Uploading:',file.name);
         setAlertInfo({open:true,Message:"Successfully submitted !!",severity:"success"});
+        if(alertInfo.severity == "sucsess"){
+            Navigate("/training-simulation/dashboard");
+        }
+        
     };
 
 
