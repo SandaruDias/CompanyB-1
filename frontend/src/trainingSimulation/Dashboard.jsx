@@ -124,7 +124,7 @@ export default function Dashboard() {
       </Box>
       <Box style={{ padding: 20 }}>
         {renderSelectedPage()}
-        <RecipeReviewCard /> {/* Include the imported component here */}
+        
       </Box>
     </>
   );

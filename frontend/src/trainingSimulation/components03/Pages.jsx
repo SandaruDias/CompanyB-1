@@ -1,12 +1,13 @@
 import { Container, CssBaseline, Typography } from "@material-ui/core";
 import FileUploadform from "./FileUploadform";
+import RecipeReviewCard from "./RecipeReviewCard";
 
 
 // Define components for different pages
 export function DashboardPage() {
     return (
         <>
-            <Typography variant="h5">Home Page Content Training & Simulation</Typography>
+            <RecipeReviewCard />
         </>
     )
 }
