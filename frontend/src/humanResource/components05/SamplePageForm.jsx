@@ -65,41 +65,22 @@ const SamplePageForm = ({ onSubmit }) => {
   };
 
   
+
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const apiUrl = 'http://localhost:8090/hr/employ/create'; // Replace with your actual API URL
-
+    const apiUrl = 'http://localhost:8090/hr/employ/create'; 
     try {
-      const response = await axios.post(apiUrl, formData, {
-      
-        'Content-Type': 'application/json', // Example header
-           
-      });
+      const response = await axios.post(apiUrl, formData);
       console.log('Form submitted successfully:', response.data);
       alert('Form submitted successfully!');
-      onSubmit(response.data); // Optional: Pass response data to a parent component
+      onSubmit(response.data); 
       resetForm();
     } catch (error) {
-      console.error('Error submitting form:', error);
-      // Handle errors more informatively based on the error type:
-      let errorMessage = 'An error occurred. Please try again later.';
-      if (error.response) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
-        errorMessage = `Server Error: ${error.response.data.message || error.response.statusText}`; // Access specific error message from response, if available
-      } else if (error.request) {
-        // The request was made but no response was received
-        // (e.g., network error)
-        errorMessage = 'Request Error: Could not connect to the server.';
-      } else {
-        // Something happened in setting up the request that triggered an error
-        errorMessage = 'Error: An unexpected error occurred.';
-      }
-      alert(errorMessage);
+      console.error('Failed to submit form:', error);
+      alert('Failed to submit form. Check the console for details.');
     }
   };
-  
-  
 
   const resetForm = () => {
     setFormData({
@@ -331,3 +312,4 @@ const SamplePageForm = ({ onSubmit }) => {
 };
 
 export default SamplePageForm;
+
