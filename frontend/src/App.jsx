@@ -8,6 +8,7 @@ import Manufacturing from './manufacturing/Dashboard.jsx';
 import QualityAssurance from './qualityAssurance/Dashboard.jsx';
 import Sales from './salesManagement/Dashboard.jsx';
 import TrainingSimulation from './trainingSimulation/Dashboard.jsx';
+import { SimulationsPage } from "./trainingSimulation/components03/Pages.jsx";
 
 function App() {
   return (
