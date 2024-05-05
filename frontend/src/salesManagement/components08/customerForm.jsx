@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import "./customerForm.css";
+import "./CustomerForm.css";
 
 function CustomerForm() {
     const [formData, setFormData] = useState({
@@ -59,6 +59,7 @@ function CustomerForm() {
             selectedProducts: selectedProductsList
         };
         console.log('Customer Info:', data);
+        alert("Congratulations! Your Order has been placed successfully.");
     };
 
     return (
@@ -82,7 +83,7 @@ function CustomerForm() {
                             ))}
                         </select>
                         <input className='cutom-input-quantity' type="number" value={quantity} onChange={handleQuantityChange} />
-                        <button className='custom-select-button' onClick={handleAddToList}>Add to List</button>
+                        <button className='custom-select-button' type="button" onClick={handleAddToList}>Add to List</button>
                         <div className="selected-products">
                             <h3>Selected Products</h3>
                             <ul>
