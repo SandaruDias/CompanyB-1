@@ -42,7 +42,7 @@ export default function RecipeReviewCard() {
   };
 
   return (
-    <>
+    
       <Grid
         container
         component="main"
