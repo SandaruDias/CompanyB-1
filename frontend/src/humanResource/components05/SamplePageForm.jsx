@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import {
   Typography,
   TextField,
@@ -63,11 +64,25 @@ const SamplePageForm = ({ onSubmit }) => {
     }));
   };
 
-  const handleSubmit = (event) => {
+  
+
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Pass the form data to the parent component for submission
-    onSubmit(formData);
-    // Reset the form fields
+    const apiUrl = 'http://localhost:8090/hr/employ/create'; 
+    try {
+      const response = await axios.post(apiUrl, formData);
+      console.log('Form submitted successfully:', response.data);
+      alert('Form submitted successfully!');
+      onSubmit(response.data); 
+      resetForm();
+    } catch (error) {
+      console.error('Failed to submit form:', error);
+      alert('Failed to submit form. Check the console for details.');
+    }
+  };
+
+  const resetForm = () => {
     setFormData({
       idNumber: "",
       recruitedDate: "",
@@ -297,3 +312,4 @@ const SamplePageForm = ({ onSubmit }) => {
 };
 
 export default SamplePageForm;
+
