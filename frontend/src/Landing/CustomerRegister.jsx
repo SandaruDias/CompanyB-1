@@ -1,7 +1,6 @@
-
-import React, { useState } from 'react';
+ import React, { useState } from 'react';
 import {useNavigate} from "react-router-dom";
-import "./styles/register.css"
+import "./CustomerRegister.css"
 
 const Register = () => {
   const [firstName, setFirstName] = useState('');
@@ -26,7 +25,7 @@ const Register = () => {
    
     console.log('Form submitted:', { firstName, lastName, email, password });
     alert("logged in with registered user");
-    navigate("/general-management/dashboard");
+    navigate("/customer-login");
    
     setFirstName('');
     setLastName('');

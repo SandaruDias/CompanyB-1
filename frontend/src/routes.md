@@ -6,5 +6,5 @@ Please find your relevant routes for the subsystem
        ="/inventory-management" 
        ="/manufacturing" 
        ="/quality-assurance" 
-       ="/sales-management" 
-        "/training-simulation"
+       ="/sales-management"
+       ="/training-simulation"

@@ -1,4 +1,5 @@
-import "./styles/customerlogin.css"
+
+import "./CustomerLogin.css"
 import {useNavigate } from "react-router-dom";
 import React, { useState } from 'react';
 import { useEffect } from "react";
@@ -20,10 +21,10 @@ const CustomerLogin = () => {
       rememberMe : rememberMe
     }
 
-    if (username === 'anupama' && password === 'paga') {
+    if (username === 'Customer' && password === 'Customer') {
       
 
-      navigate('/general-management/dashboard');
+      navigate('/customer-order');
     } else {
       // Display error message
      
@@ -41,7 +42,7 @@ const CustomerLogin = () => {
 
 
   const handledSignup = () => {
-    navigate('/general-management/signup')
+    navigate('/customer-register')
   }
 
   return (
