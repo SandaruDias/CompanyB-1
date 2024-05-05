@@ -49,11 +49,9 @@ function DeleteProduct() {
       setModalVisible(true);
     }
   };
-
   const handleModalClose = () => {
-    // Redirect to the home page after closing the modal
-    history.push("/inventoryManag");
-  };
+    setModalVisible(false);
+  };
 
   return (
     <>

@@ -38,7 +38,7 @@ function UpdateProduct() {
   useEffect(() => {
     if (selectedProduct) {
       axios
-        .get(`http://localhost:8087/product/${selectedProduct}`)
+        .get(`http://localhost:8090/product/${selectedProduct}`)
         .then((response) => {
           setProductDetails(response.data);
           console.log("Fetched products: ", response);
@@ -62,7 +62,7 @@ function UpdateProduct() {
     try {
       // Make a POST request to update the selected product
       const response = await axios.post(
-        `http://localhost:8087/product/update`,
+        `http://localhost:8090/product/update`,
         productDetails
       );
 
@@ -79,9 +79,8 @@ function UpdateProduct() {
   };
 
   const handleModalClose = () => {
-    // Redirect to the home page after closing the modal
-    history.push("/inventoryManag");
-  };
+    setModalVisible(false);
+  };
 
   return (
     <>

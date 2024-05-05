@@ -31,7 +31,7 @@ function ReleaseProduct() {
     try {
       // POST request to release the units of the selected product
       const response = await axios.post(
-        `http://localhost:8087/product/release-product`,
+        `http://localhost:8090/product/release-product`,
         {
           id: selectedProduct,
           units: parseInt(units),
@@ -51,9 +51,8 @@ function ReleaseProduct() {
   };
 
   const handleModalClose = () => {
-    //location.reload();
-    history.push("/inventoryManag");
-  };
+    setModalVisible(false);
+  };
 
   return (
     <>

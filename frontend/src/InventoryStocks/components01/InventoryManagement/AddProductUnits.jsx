@@ -51,8 +51,8 @@ function ReleaseProduct() {
   };
 
   const handleModalClose = () => {
-    history.push("/inventoryManag");
-  };
+    setModalVisible(false);
+  };
 
   return (
     <>

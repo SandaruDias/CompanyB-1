@@ -92,7 +92,7 @@ const AddOrder = () => {
         </div>
         <br />
         <button className="update-stock-button" type="submit">
-          Update Stock
+          Order Rawmaterial 
         </button>
       </form>
     </div>
