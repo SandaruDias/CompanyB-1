@@ -118,7 +118,7 @@
     flex: 1; /* Take up one unit of available space */
     margin: 0 3vh 0 5vh; /* Add spacing between label and input */
     font-family: poppins;
-    max-width: 500px; /* Set a fixed width for the label */
+    max-width: 200px; /* Set a fixed width for the label */
     border-radius: 5px;
     padding: 0.5rem 10rem;
     background-color: #f2f2f2;
