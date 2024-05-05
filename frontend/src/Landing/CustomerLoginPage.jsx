@@ -1,90 +1,102 @@
+// CustomerLoginPage.js
 
-import "./CustomerLogin.css"
-import {useNavigate } from "react-router-dom";
-import React, { useState } from 'react';
-import { useEffect } from "react";
+import "./AdminLoginPage.css";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const CustomerLogin = () => {
-  // State variables to hold user inputs
-  const [username, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(false);
-  const navigate = useNavigate();
+const CustomerLoginPage = () => {
+	const navigate = useNavigate();
+	const [formData, setFormData] = useState({
+		username: "",
+		password: "",
+	});
 
-  // Function to handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Your logic to handle login goes here
-    const obj = {
-     username : username,
-      password : password,
-      rememberMe : rememberMe
-    }
+	// Define state for the server response
+	const [response, setResponse] = useState(null);
 
-    if (username === 'Customer' && password === 'Customer') {
-      
+	// Handler function for form input changes
+	const handleInputChange = (e) => {
+		const { name, value } = e.target;
+		setFormData({
+			...formData,
+			[name]: value,
+		});
+	};
 
-      navigate('/customer-order');
-    } else {
-      // Display error message
-     
-      alert("user name or password incorrect");
-    }
+	// Handler function for form submission
+	const handleSubmit = async (e) => {
+		e.preventDefault();
 
+		try {
+			// Make an HTTP request using fetch
+			const response = await fetch(
+				`http://localhost:8090/api/user/login?username=${formData.username}&password=${formData.password}`,
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify(formData),
+				}
+			);
 
+			// Parse the JSON response
+			const data = await response.text();
+			// Check the server response
+			if (data === "Login successful!") {
+				// TODO what link to navigate after login is successful
+				navigate("/customer-order");
+			}
 
-    // Reset form fields
-    console.log(obj);
-    setEmail('');
-    setPassword('');
-    setRememberMe(false);
-  };
+			// Update the state with the server response
+			setResponse(data);
+		} catch (error) {
+			console.error("Error:", error);
+			// Handle any errors here (optional)
+		}
+	};
 
+	const handleSignUpClick = () => {
+		alert("Contact the HR Manager"); // Show an alert when sign up button is clicked
+	};
 
-  const handledSignup = () => {
-    navigate('/customer-register')
-  }
+	return (
+		<div className="login-container">
+			<h2>Customer Login</h2>
+			<form onSubmit={handleSubmit} className="form-container">
+				<div>
+					<label>Username:</label>
+					<input
+						type="text"
+						name="username"
+						value={formData.username}
+						onChange={handleInputChange}
+					/>
+				</div>
+				<div>
+					<label>Password:</label>
+					<input
+						type="password"
+						name="password"
+						value={formData.password}
+						onChange={handleInputChange}
+					/>
+				</div>
+				<button type="submit">Submit</button>
+			</form>
 
-  return (
-    <div className="form-container"> {/* Apply CSS class to container */}
-      <h2>Customer Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-input"> {/* Apply CSS class to input container */}
-          <label>Username:</label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-input"> {/* Apply CSS class to input container */}
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <div className="remember-me"> {/* Apply CSS class to Remember Me container */}
-          <label>
-            <input
-              type="checkbox"
-              checked={rememberMe}
-              onChange={() => setRememberMe(!rememberMe)}
-            />
-            Remember Me
-          </label>
-
-
-        </div>
-        <button className="submit-btn" type="submit">signin</button> 
-        
-      </form>
-      <button className = "signup-btn" onClick={handledSignup}> signup </button>
-    </div>
-  );
+			{/* Display the response from the server */}
+			{response && (
+				<div>
+					<h2>Server Response:</h2>
+					<p>{response}</p>
+				</div>
+			)}
+			<p onClick={handleSignUpClick} className="signup-msg">
+				Need to sign up? Click here.
+			</p>
+		</div>
+	);
 };
 
-export default CustomerLogin;
+export default CustomerLoginPage;
