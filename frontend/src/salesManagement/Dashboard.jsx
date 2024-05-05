@@ -128,6 +128,9 @@ export default function Dashboard() {
       <Box style={{ padding: 20 }}>
         {renderSelectedPage()}
       </Box>
+      <h1>
+            Select date
+      </h1>
       <DateRangePickerComp/>
       
     </>
