@@ -10,6 +10,7 @@ export const Card = (props) => {
     setVal(event.target.value)
   }
 
+  
   return (
     <div className='card-container'>
         <img src = {props.imgLink} alt = {props.imgAlt} className='card-img'/>
