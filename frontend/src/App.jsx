@@ -15,7 +15,7 @@ import ContactUs from "./qualityAssurance/components07/ContactUs.jsx";
 import Sales from './salesManagement/Dashboard.jsx';
 import TrainingSimulation from './trainingSimulation/Dashboard.jsx';
 import TrainingSimulationManagerPortal from './trainingSimulation/ManagerPortal.jsx';
-import TrainingPage from "./trainingSimulation/components03/Pages.jsx"
+import TrainingPage from "./trainingSimulation/Dashboard.jsx";
 ;
 import SimulationPage from "./trainingSimulation/components03/FileUploadform.jsx";
 import PrototypePage from "./trainingSimulation/Customerprototype.jsx";

@@ -12,54 +12,54 @@ function TrainingPage() {
     <h1></h1>
     <div className="card-row">
         <Card 
-        imgLink = "https://miro.medium.com/v2/resize:fit:1400/1*s80xLYgbrwbXgEuuDBR5mw.jpeg"
+        imgLink = "https://images.pexels.com/photos/2517330/pexels-photo-2517330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         imgAlt = "CardImage"
-        CourseTitle = "Front-End Development"
-        CourseDescription = "Learn front-end development essentials in our course. From HTML and CSS to JavaScript, gain the skills to build responsive and user-friendly websites. Perfect for beginners and those looking to advance their coding abilities."
+        CourseTitle = "Electronics Assembly and Soldering Techniques"
+        CourseDescription = "Overview: This hands-on course introduces students to the methods and tools used in the assembly of electronic components onto PCBs. Key topics include soldering techniques (both through-hole and surface mount), inspection, and rework procedures. The course often emphasizes quality assurance, safety standards, and the proper handling of electronic components."
         EnrolLink = "/Course1"/>
         <Card
-        imgLink = "https://assets-global.website-files.com/61897bbb80b04406f137091a/619e894984f97c88358c3581_blog-01.png"
+        imgLink = "https://images.pexels.com/photos/6432109/pexels-photo-6432109.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         imgAlt = "CardImage"
-        CourseTitle = "Back-End Development"
-        CourseDescription = "Learn front-end development essentials in our course. From HTML and CSS to JavaScript, gain the skills to build responsive and user-friendly websites. Perfect for beginners and those looking to advance their coding abilities."
+        CourseTitle = "Printed Circuit Board (PCB) Design and Fabrication"
+        CourseDescription = "Overview: This course typically teaches the fundamentals of designing and manufacturing printed circuit boards, focusing on layout design, component placement, and routing. Students learn about various PCB fabrication techniques, materials, and the software tools used in the industry. The course might also cover topics such as signal integrity, thermal management, and testing procedures to ensure functionality and reliability."
         EnrolLink = "/Course2" />
         <Card 
-        imgLink = "https://images.shiksha.com/mediadata/shikshaOnline/mailers/2022/naukri-learning/August/Graphic-designer1.jpg"
+        imgLink = "https://images.pexels.com/photos/3825581/pexels-photo-3825581.jpeg?auto=compress&cs=tinysrgb&w=600"
         imgAlt = "CardImage"
-        CourseTitle = "Graphic Designing"
-        CourseDescription = "Learn front-end development essentials in our course. From HTML and CSS to JavaScript, gain the skills to build responsive and user-friendly websites. Perfect for beginners and those looking to advance their coding abilities."
+        CourseTitle = "Introduction to Electronics:"
+        CourseDescription = "Overview: This course provides a primer on the basic components and functions of electronic devices. You'll learn about resistors, capacitors, diodes, transistors, and other fundamental electronic components. The course typically covers how these components are used in various devices and simple circuits."
         EnrolLink = "/Course3"/>
         <Card 
-        imgLink = "https://pbblogassets.s3.amazonaws.com/uploads/2016/07/EDIT-COVER.jpg"
+        imgLink = "https://images.pexels.com/photos/57007/pexels-photo-57007.jpeg?auto=compress&cs=tinysrgb&w=600"
         imgAlt = "CardImage"
-        CourseTitle = "Video Editing"
-        CourseDescription = "Learn front-end development essentials in our course. From HTML and CSS to JavaScript, gain the skills to build responsive and user-friendly websites. Perfect for beginners and those looking to advance their coding abilities."
+        CourseTitle = "Introduction to Microcontrollers"
+        CourseDescription = "Overview: Microcontrollers are the heart of many modern electronic devices. This course typically teaches the basics of microcontroller architecture, programming, and interfacing. Practical sessions might involve programming a simple microcontroller like Arduino or Raspberry Pi to perform basic tasks."
         EnrolLink = "/Course4" />
     </div>
     <div className="card-row">
         <Card 
-        imgLink = "https://ideausher.com/wp-content/uploads/2022/07/covr-image-50_result.webp"
+        imgLink = "https://images.pexels.com/photos/3912367/pexels-photo-3912367.jpeg?auto=compress&cs=tinysrgb&w=600"
         imgAlt = "CardImage"
-        CourseTitle = "App Development"
-        CourseDescription = "Learn front-end development essentials in our course. From HTML and CSS to JavaScript, gain the skills to build responsive and user-friendly websites. Perfect for beginners and those looking to advance their coding abilities."
+        CourseTitle = "Electronics Prototyping"
+        CourseDescription = "Overview: Prototyping is crucial in the design process. This course focuses on methods for quickly and effectively creating prototypes to test theories and designs. Techniques such as rapid prototyping, 3D printing, and iterative design are often covered."
         EnrolLink = "/Course5"/>
         <Card 
-        imgLink = "https://blog.hubspot.com/hs-fs/hubfs/content%20creation.png?width=595&height=400&name=content%20creation.png"
+        imgLink = "https://images.pexels.com/photos/257904/pexels-photo-257904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         imgAlt = "CardImage"
-        CourseTitle = "Content Creation"
-        CourseDescription = "Learn front-end development essentials in our course. From HTML and CSS to JavaScript, gain the skills to build responsive and user-friendly websites. Perfect for beginners and those looking to advance their coding abilities."
+        CourseTitle = "Digital Electronics"
+        CourseDescription = "Overview: This course introduces the principles of digital electronics, which are foundational for modern electronics manufacturing. Topics generally include logic gates, flip flops, microprocessors, and how digital memory works. This course is crucial for understanding more complex electronic systems and computer engineering."
         EnrolLink = "/Course6" />
         <Card 
-        imgLink = "https://blog.academyart.edu/wp-content/uploads/2020/07/Wei-Chieh-Wang-Piccolo.jpg"
+        imgLink = "https://images.pexels.com/photos/9242803/pexels-photo-9242803.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         imgAlt = "CardImage"
-        CourseTitle = "3D Animation"
-        CourseDescription = "Learn front-end development essentials in our course. From HTML and CSS to JavaScript, gain the skills to build responsive and user-friendly websites. Perfect for beginners and those looking to advance their coding abilities."
+        CourseTitle = "Electronics Manufacturing Processes"
+        CourseDescription = "Overview: This course offers a broad overview of the manufacturing processes used in the electronics industry, including PCB fabrication, component assembly, and testing. It provides insights into the end-to-end process of producing electronic devices."
         EnrolLink = "/Course7" />
         <Card 
-        imgLink = "https://pbblogassets.s3.amazonaws.com/uploads/2015/11/Cinematography-Manual.jpg"
+        imgLink = "https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         imgAlt = "CardImage"
-        CourseTitle = "Cinematography"
-        CourseDescription = "Learn front-end development essentials in our course. From HTML and CSS to JavaScript, gain the skills to build responsive and user-friendly websites. Perfect for beginners and those looking to advance their coding abilities."
+        CourseTitle = "Basic Circuit Analysis"
+        CourseDescription = "Overview: Aimed at teaching how to read and understand electrical schematics and wiring diagrams, this course focuses on the principles of circuit design and analysis. It often includes hands-on labs where students can build and test simple circuits using breadboards and basic electronic tools."
         EnrolLink = "/Course8" />
     </div>
     </>
