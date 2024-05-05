@@ -5,7 +5,7 @@ import { Typography } from "@material-ui/core";
 export function DashboardPage() {
     return (
         <>
-            <Typography variant="h5">Home Page Content Sales Management</Typography>
+            <Typography variant="h5"> HOME PAGE </Typography>
         </>
     )
 }

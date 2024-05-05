@@ -10,6 +10,7 @@ import Sales from './salesManagement/Dashboard.jsx';
 import TrainingSimulation from './trainingSimulation/Dashboard.jsx';
 import SalesReport from './salesManagement/components08/DateRangePickerComp.jsx';
 
+
 function App() {
   return (
     <Router>
@@ -25,6 +26,7 @@ function App() {
         <Route path="/quality-assurance" element={<QualityAssurance />} />
         <Route path="/sales-management" element={<Sales />}/>
         <Route path="/sales-management/sales-report" element={<SalesReport/>}/>
+    
   
         <Route path="/training-simulation" element={<TrainingSimulation />} />
 

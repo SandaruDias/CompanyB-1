@@ -114,6 +114,8 @@ export default function Dashboard() {
   };
 
   const containerStyle = {
+    alignItems: 'center',
+    margin: '20',
     width: '100vw', // Set container width to viewport width
     height: '100vh', // Set container height to viewport height
     background: `url(${backgroundImage}) no-repeat center center fixed`, // Set the image as background
@@ -140,9 +142,9 @@ export default function Dashboard() {
         </AppBar>
       </Box>
       <div>
-      <button style={{ margin: '10px', padding: '5px 10px' }}> <Link to="/sales-management/sales-report">Sales Report</Link> </button>
-      <button style={{ margin: '10px', padding: '5px 10px' }} className="home-button"> <Link to="/sales-management/sales-report">Invoices</Link> </button>
-      <button style={{ margin: '10px', padding: '5px 10px' }} className="home-button"> <Link to="/sales-management/sales-report">Order Placement</Link> </button>
+      <button style={{ backgroundColor: 'aqua',color: 'white',margin: '10px', padding: '5px 10px' }}> <Link to="/sales-management/sales-report">Sales Report</Link> </button>
+      <button style={{ backgroundColor: 'aqua',color: 'white',margin: '10px', padding: '5px 10px' }} className="home-button"> <Link to="/sales-management/sales-report">Invoices</Link> </button>
+      <button style={{ backgroundColor: 'aqua',color: 'white',margin: '10px', padding: '5px 10px' }} className="home-button"> <Link to="/sales-management/order-place">Order Placement</Link> </button>
       <Box style={{ padding: 20 }}>
         {renderSelectedPage()}
       </Box>
