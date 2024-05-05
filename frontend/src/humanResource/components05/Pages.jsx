@@ -8,24 +8,26 @@ import AdministratorData from "./AdministratorData";
 import ApplicatData from "./ApplicatData";
 import Attendance from "./Attendance"; 
 import DashboardContent from "./DashboardContent";
+import ShortLeaveForm from "./ShortLeaveForm";
 
 
-const PageContainer = ({ children }) => {
-    return (
-      <Box
-        style={{
-          backgroundColor: "lightgray", // Set your desired background color here
-          minHeight: "100vh", // Ensure the container takes up the full height of the viewport
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center"
-        }}
-      >
-        {children}
-      </Box>
-    );
-  };
+
+// const PageContainer = ({ children }) => {
+//     return (
+//       <Box
+//         style={{
+//           backgroundColor: "lightgray", // Set your desired background color here
+//           minHeight: "100vh", // Ensure the container takes up the full height of the viewport
+//           display: "flex",
+//           flexDirection: "column",
+//           justifyContent: "center",
+//           alignItems: "center"
+//         }}
+//       >
+//         {children}
+//       </Box>
+//     );
+//   };
 
 // Define components for different pages
 export function DashboardPage() {
@@ -41,7 +43,7 @@ export function DashboardPage() {
 export function SamplePage() {
     return (
         <>
-            <Typography variant="h5">Contacts Page Content</Typography>;
+           
             <SamplePageForm /> 
         </>
     );
@@ -66,9 +68,9 @@ export function NewPage() {
 export function AttendancePage() {
     return (
         <>
-            <PageContainer>
+            
             <Attendance />
-            </PageContainer>
+            
 
         </>
     );
@@ -101,6 +103,15 @@ export function ApplicantDataPage() {
     );
 }
 
+export function ShortLeavePage() {
+    return (
+      <>
+        <ShortLeaveForm /> 
+        
+      </>
+    );
+}
+  
 export function LogoutPage() {
     return <Typography variant="h5">Contacts Page Content</Typography>;
 }

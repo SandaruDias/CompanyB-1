@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom"; // Import useParams hook to access URL parameters
+import { useParams } from "react-router-dom";
 import {
   TextField,
   Button,
@@ -18,19 +18,21 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     gap: theme.spacing(2),
   },
+  title: {
+    textAlign: "center", // Center align the title
+    fontWeight: "bold", // Make the title bold
+  },
 }));
 
 const EditEmployeePage = () => {
   const classes = useStyles();
-  const { id } = useParams(); // Access the employee ID from URL parameters
+  const { id } = useParams();
   const [employee, setEmployee] = useState({
     name: "",
     email: "",
     jobPosition: "",
     contactNumber: "",
   });
-
-  // Fetch employee data based on the ID (e.g., from backend API)
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -39,13 +41,12 @@ const EditEmployeePage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission (e.g., update employee data)
     console.log("Updated employee data:", employee);
   };
 
   return (
     <Paper className={classes.root}>
-      <Typography variant="h6" gutterBottom>
+      <Typography variant="h5" className={classes.title} gutterBottom>
         Edit Employee
       </Typography>
       <form className={classes.form} onSubmit={handleSubmit}>

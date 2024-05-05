@@ -24,8 +24,10 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
 import {EventAvailable} from "@material-ui/icons";
 import { Edit } from "@material-ui/icons";
-import {People, SupervisorAccount,Person} from "@material-ui/icons";
-import { DashboardPage, ProfilePage, SamplePage,LogoutPage,NewPage,AttendancePage,EmployeeDataPage,AdministratorDataPage,ApplicantDataPage } from "./components05/Pages";
+import {People, SupervisorAccount,Person,ShortText} from "@material-ui/icons";
+import { DashboardPage, ProfilePage, SamplePage,
+  LogoutPage,NewPage,AttendancePage,EmployeeDataPage,
+  AdministratorDataPage,ApplicantDataPage,ShortLeavePage } from "./components05/Pages";
 
 // Define styles
 const useStyles = makeStyles((theme) => ({
@@ -78,7 +80,8 @@ export default function Dashboard() {
           { Icon: AssignmentInd, text: "Employee Form" },
           { Icon: PersonIcon, text: "Application Form" },
           { Icon: Edit, text: "Edit" },
-          { Icon: EventAvailable, text: "Attendance" }, 
+          { Icon: EventAvailable, text: "Attendance" },
+          { Icon: ShortText, text: "Short Leave" }, 
           { Icon: LogoutIcon, text: "Log out" }
         ].map((item, index) => (
           <ListItem
@@ -115,7 +118,9 @@ export default function Dashboard() {
       case "Edit": 
         return <NewPage />;
       case "Attendance":
-          return <AttendancePage />;
+         return <AttendancePage />;
+      case "Short Leave":
+        return <ShortLeavePage />;
       case "Log Out":
         return <LogoutPage />;
       default:

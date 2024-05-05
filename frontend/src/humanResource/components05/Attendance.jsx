@@ -4,43 +4,50 @@ import { Typography, TextField, Button, Container } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     attendanceContainer: {
-        backgroundColor: 'lightblue', // Light blue background color
-        padding: theme.spacing(5), // Increase padding for larger size
-        borderRadius: theme.spacing(3), // Rounded corners
-        width: '500px', // Increase width for larger size
-        display: 'flex', // Use flexbox
-        flexDirection: 'column', // Arrange items vertically
-        justifyContent: 'center', // Center vertically
-        alignItems: 'center', // Center horizontally
+        backgroundColor: 'lightblue',
+        padding: theme.spacing(5),
+        borderRadius: theme.spacing(3),
+        width: '400px', // Reduced width
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    form: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    title: {
+        marginBottom: theme.spacing(2), // Add margin to separate from form
     },
 }));
 
 const Attendance = () => {
     const classes = useStyles();
-    const [nic, setNIC] = useState('');
+    const [id, setID] = useState('');
 
-    const handleNICChange = (e) => {
-        setNIC(e.target.value);
+    const handleIDChange = (e) => {
+        setID(e.target.value);
     };
 
     const handleCheckIn = () => {
-        // Here you can implement the logic to mark the attendance based on the NIC entered
-        // For now, let's just log the NIC to the console
-        console.log('Checking in with NIC:', nic);
+        console.log('Checking in with ID:', id);
     };
 
     return (
         <Container className={classes.attendanceContainer}>
-            <Typography variant="h5" style={{ textTransform: 'capitalize' }}>Enter your attendance</Typography> {/* Capitalize first letter */}
-            <form>
+            <Typography variant="h5" className={classes.title} style={{ textTransform: 'capitalize', textAlign: 'center' }}>Enter your attendance</Typography>
+            <form className={classes.form}>
                 <TextField
-                    id="nicInput"
-                    label="NIC"
-                    value={nic}
-                    onChange={handleNICChange}
-                    placeholder="Enter NIC"
+                    id="idInput"
+                    label="ID"
+                    value={id}
+                    onChange={handleIDChange}
+                    placeholder="Enter ID"
                     fullWidth
                     margin="normal"
+                    style={{ width: '100%' }} // Adjust width of input field
                 />
                 <Button variant="contained" color="primary" onClick={handleCheckIn}>Check in</Button>
             </form>
