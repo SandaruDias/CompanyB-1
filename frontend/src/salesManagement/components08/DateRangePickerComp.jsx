@@ -1,77 +1,32 @@
-import {useEffect,useRef,useState} from 'react'
-import {DateRangePicker} from 'react-date-range'
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
-import format from 'date-fns/format'
-import { addDays } from 'date-fns'
+const DateRangePickerComponent = () => {
+  const [fromDate, setFromDate] = useState(null);
+  const [toDate, setToDate] = useState(null);
 
-import 'react-date-range/dist/styles.css'
-import 'react-date-range/dist/theme/default.css'
-import "./styles.css";
+  const handleFromDateChange = (date) => {
+    setFromDate(date);
+  };
 
-const DateRangePickerComp = () => {
-    
-    //date state 
-    const[range,setRange] = useState([ 
-      {
-        startDate: new Date(),
-        endDate: addDays(new Date(),7),
-        key: 'selection'
-      }
-    ])
+  const handleToDateChange = (date) => {
+    setToDate(date);
+  };
 
-    //open close
-    const[open,setOpen] = useState(false)
+  return (
+    <div>
+      <h2>Select a Date Range</h2>
+      <div>
+        <label>From Date:</label>
+        <DatePicker selected={fromDate} onChange={handleFromDateChange} />
+      </div>
+      <div>
+        <label>To Date:</label>
+        <DatePicker selected={toDate} onChange={handleToDateChange} />
+      </div>
+    </div>
+  );
+};
 
-    // get the target element to toggle
-    const refOne = useRef(null)
-
-    useEffect(() => {
-        // set current date on component Load
-        document.addEventListener("keydown",hideOnEscape,true)
-        document.addEventListener("click",hideOnClickOutside,true)
-    },[])
-    
-    //hide dropdown on ESC press
-    const hideOnEscape = (e) => {
-        console.log(e.key)
-        if (e.key === "Escape"){
-            setOpen(false)
-        }
-    }
-
-    //hide on outside click 
-    const hideOnClickOutside = () => {
-        //console.Log(refOne.current)
-        //console.Log(e.target)
-        if(refOne.current && !refOne.current.contains(e.target)){
-            setOpen(false)
-        }
-    }
-    
-    return(
-        <div className="calendarWrap">
-            <input 
-              value={`${format(range[0].startDate,"MM/dd/yyyy")} to ${format(range[0].endDate,"MM/dd/yyyy")} `}
-              readOnly
-              className = "inputBox"
-              onClick={() => setOpen(open => !open)}
-            />
-          
-          <div ref= {refOne}>
-          {open &&
-            <DateRangePicker
-              onChange={item => setRange([item.selection])}
-              editableDateInputs={true}
-              moveRangeOnFirstSelection={false}
-              ranges={range}
-              months={2}
-              diretion='horizontal'
-              className="calendarElement"
-            />
-          }
-          </div>
-        
-        </div>
-    )
-}
-export default DateRangePickerComp
+export default DateRangePickerComponent;
