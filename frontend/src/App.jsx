@@ -9,8 +9,8 @@ import QualityAssurance from './qualityAssurance/Dashboard.jsx';
 import Sales from './salesManagement/Dashboard.jsx';
 import TrainingSimulation from './trainingSimulation/Dashboard.jsx';
 import TrainingSimulationManagerPortal from './trainingSimulation/ManagerPortal.jsx';
-import { SimulationsPage } from "./trainingSimulation/components03/Pages.jsx";
-import TrainingPage from "./trainingSimulation/components03/TrainingPage/TrainingPage.jsx";
+import TrainingPage from "./trainingSimulation/components03/Pages.jsx"
+;
 import SimulationPage from "./trainingSimulation/components03/FileUploadform.jsx";
 import PrototypePage from "./trainingSimulation/Customerprototype.jsx";
 
