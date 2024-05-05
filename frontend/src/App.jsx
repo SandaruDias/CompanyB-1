@@ -1,8 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import CustomerLogin from "./Landing/CustomerLoginPage.jsx";
-import Register from "./Landing/CustomerRegister.jsx";
-import LandPage from './Landing/LandPage.jsx';
-import AdminLoginPage from './Landing/AdminLoginPage';
 import GeneralManagement from './generalManagement/Dashboard.jsx';
 import Inventory from './InventoryStocks/Dashboard.jsx'
 import CustomerOrder from './customerOrder/Dashboard.jsx';
@@ -13,16 +9,15 @@ import QualityAssurance from './qualityAssurance/Dashboard.jsx';
 import Sales from './salesManagement/Dashboard.jsx';
 import TrainingSimulation from './trainingSimulation/Dashboard.jsx';
 import TrainingSimulationManagerPortal from './trainingSimulation/ManagerPortal.jsx';
-
+import TrainingPage from "./trainingSimulation/components03/Pages.jsx"
+;
+import SimulationPage from "./trainingSimulation/components03/FileUploadform.jsx";
+import PrototypePage from "./trainingSimulation/Customerprototype.jsx";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LandPage />} />
-        <Route path="/admin-login" element={<AdminLoginPage/>}/>
-        <Route path="/customer-login" element={<CustomerLogin/>}/>    
-        <Route path="/customer-register" element={<Register/>}/>
         <Route path="/general-management" element={<GeneralManagement />} />
         <Route path="/inventory-management" element={<Inventory />} />
         <Route path="/customer-order" element={<CustomerOrder />} />
@@ -32,6 +27,9 @@ function App() {
         <Route path="/quality-assurance" element={<QualityAssurance />} />
         <Route path="/sales-management" element={<Sales />} />
         <Route path="/training-simulation" element={<TrainingSimulation />} />
+        <Route path="/traning-simulation/training" element={<TrainingPage/>}/>
+        <Route path="/training-simulation/simulations" element={<SimulationPage/>}/>
+        <Route path="/training-simulation/prototypes" element={<PrototypePage/>}/>
         <Route path="/training-simulation/managerportal" element={<TrainingSimulationManagerPortal />} />
       </Routes>
     </Router>

@@ -20,9 +20,13 @@ import prototype from "./prototype.jpg";
 import training from "./training.jpg";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import Adminprototype from "../Adminprototype";
+import Customerprototype from "../Customerprototype";
+import { useNavigate } from "react-router-dom"; 
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
+  const navigate = useNavigate();
   return <IconButton {...other} />;
 })(({ theme, expand }) => ({
   transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
@@ -40,15 +44,16 @@ export default function RecipeReviewCard() {
   };
 
   return (
-    <Grid
-      container
-      component="main"
-      direction="row"
-      justifyContent="center"
-      alignItems="center"
-      sx={{ mt: 5 }}
-    >
-      <CssBaseline />
+    
+      <Grid
+        container
+        component="main"
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        sx={{ mt: 5 }}
+      >
+        <CssBaseline />
 
       <Grid item xs={12} sm={4}>
         {" "}
@@ -75,7 +80,9 @@ export default function RecipeReviewCard() {
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-            Prototyping of electric circuits is an essential step in the development of electronic devices, allowing engineers to explore design concepts, test theories, and iterate functionalities before final production.
+            Prototyping of electric circuits is an essential step in the development of electronic devices, 
+            allowing engineers to explore design concepts, test theories, 
+            and iterate functionalities before final production. 
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
@@ -86,7 +93,7 @@ export default function RecipeReviewCard() {
               <ShareIcon />
             </IconButton>
             <Stack spacing={2} direction="row">
-              <Button variant="contained">Add Request</Button>
+              <Button variant="contained" onClick={()=>navigate("/training-simulation/prototypes")} >Add Request</Button>
             </Stack>
             <ExpandMore
               expand={expanded}
@@ -99,11 +106,17 @@ export default function RecipeReviewCard() {
           </CardActions>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <Typography paragraph>Why?</Typography>
+              <Typography paragraph>Importance:</Typography>
+            
               <Typography paragraph>
-              This process involves constructing early versions of a circuit, typically using breadboards or prototype boards, to connect components like resistors, capacitors, and integrated circuits. Through prototyping, potential design flaws can be identified and corrected early, minimizing costly errors later in the manufacturing process. It also provides a hands-on opportunity to validate the circuit's performance against expected outcomes, ensuring that it meets the necessary specifications and functionality requirements. This phase is crucial for innovations in electronics, facilitating adjustments and enhancements that optimize the final product's efficiency and reliability.
+              This process involves constructing early versions of a circuit, 
+              typically using breadboards or prototype boards, to connect components 
+              like resistors, capacitors, and integrated circuits. 
+              Through prototyping, potential design flaws can be identified and corrected early, minimizing costly errors later in the manufacturing process.
+               It also provides a hands-on opportunity to validate the circuit's performance against expected outcomes, ensuring that it meets the necessary specifications and functionality requirements. 
+               This phase is crucial for innovations in electronics, facilitating adjustments and enhancements that optimize the final product's efficiency and reliability.
               </Typography>
-              
+            
             </CardContent>
           </Collapse>
         </Card>
@@ -132,9 +145,9 @@ export default function RecipeReviewCard() {
             alt="simulation"
           />
           <CardContent>
-            <Typography variant="body2" color="text.secondary">
-            Electronic circuit simulation is a critical process in the design and development of electronic systems, enabling engineers to test and analyze the behavior of circuits before they are physically built. 
-            </Typography>
+            <Typography variant="body2" color="text.secondary">Electronic circuit simulation is a critical process in the design and development of electronic systems, enabling engineers to test and 
+            analyze the behavior of circuits before they are physically built.</Typography>
+            
           </CardContent>
           <CardActions disableSpacing>
             <IconButton aria-label="add to favorites">
@@ -144,7 +157,7 @@ export default function RecipeReviewCard() {
               <ShareIcon />
             </IconButton>
             <Stack spacing={2} direction="row">
-              <Button variant="contained">Add Request</Button>
+              <Button variant="contained" onClick={()=>navigate("/training-simulation/simulations")}>Add Request</Button>
             </Stack>
             <ExpandMore
               expand={expanded}
@@ -157,12 +170,14 @@ export default function RecipeReviewCard() {
           </CardActions>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
-              <Typography paragraph>Why simulation?</Typography>
+              <Typography paragraph>Why Simulation ?:</Typography>
               <Typography paragraph>
-              This step uses specialized software tools to model the behavior of electronic components under various conditions, helping designers to foresee potential issues and evaluate the performance of different circuit configurations. By simulating how the circuit responds to changes in voltage, current, or frequency, engineers can optimize designs and make necessary modifications without the cost and time associated with building multiple physical prototypes. Electronic circuit simulation not only streamlines the development process but also enhances the reliability and functionality of the final products, making it an indispensable tool in modern electronic design workflows.
+              This step uses specialized software tools to model the behavior of electronic components under various conditions, helping designers to foresee potential issues and evaluate the performance of different circuit configurations. 
+              By simulating how the circuit responds to changes in voltage, current, or frequency, engineers can optimize designs and make necessary modifications without the cost and time associated with building multiple physical prototypes. 
+              Electronic circuit simulation not only streamlines the development process but also enhances the reliability and functionality of the final products,
+               making it an indispensable tool in modern electronic design workflows.
               </Typography>
-              
-              
+             
             </CardContent>
           </Collapse>
         </Card>
@@ -192,7 +207,9 @@ export default function RecipeReviewCard() {
           />
           <CardContent>
             <Typography variant="body2" color="text.secondary">
-              Explore our exclusive training courses in the field of electronics. Broaden your knowledge in the world of silicons.
+              This impressive paella is a perfect party dish and a fun meal to
+              cook together with your guests. Add 1 cup of frozen peas along
+              with the mussels, if you like.
             </Typography>
           </CardContent>
           <CardActions disableSpacing>
@@ -203,7 +220,7 @@ export default function RecipeReviewCard() {
               <ShareIcon />
             </IconButton>
             <Stack spacing={2} direction="row">
-              <Button variant="contained">Enroll</Button>
+              <Button variant="contained" onClick={()=>navigate("/traning-simulation/training")}>Entroll</Button>
             </Stack>
             <ExpandMore
               expand={expanded}

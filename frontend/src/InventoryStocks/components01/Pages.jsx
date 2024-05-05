@@ -1,21 +1,21 @@
-import { CssBaseline, Typography } from "@material-ui/core";
-import { SupplierMang } from "./SupplierManagement/SupplierMang";
-import { StockMang } from "./StockManagement/StockMang";
-import { InventoryMang} from "./InventoryManagement/InventoryMang";
-// import {InventoryMang} from "./InventoryManagement/InventoryMang";
+import { Typography } from "@material-ui/core";
 
 
 // Define components for different pages
 export function DashboardPage() {
-    return(<SupplierMang/>)
+    return (
+        <>
+            <Typography variant="h5">Home Page Content Inventory Management</Typography>
+        </>
+    )
 }
 
 export function SamplePage() {
-    return (<StockMang/>)
+    return <Typography variant="h5">Resume Page Content Inventory Management</Typography>;
 }
 
 export function ProfilePage() {
-    return (<InventoryMang/>)
+    return <Typography variant="h5">Portfolio Page Content Inventory Management</Typography>;
 }
 
 export function LogoutPage() {
