@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { Link,useNavigate } from 'react-router-dom';
+import './Dashboard.css';
+import AddConcern from "./components07/AddConcerns";
+
 import {
   AppBar,
   Toolbar,
@@ -13,7 +17,8 @@ import {
   makeStyles,
   CssBaseline,
   Drawer,
-  Typography
+  Typography,
+  Button
 } from "@material-ui/core";
 import {
   Menu,
@@ -87,7 +92,10 @@ export default function Dashboard() {
         ))}
       </List>
     </Box>
+    
   );
+
+    
 
   // Render the selected component based on the current state
   const renderSelectedPage = () => {
@@ -104,9 +112,14 @@ export default function Dashboard() {
         return <DashboardPage />;
     }
   };
+  const navigate = useNavigate();
+
+
 
   return (
-    <>
+
+    
+<>
       <CssBaseline />
       <Box component="nav">
         <AppBar position="static">
@@ -125,6 +138,19 @@ export default function Dashboard() {
       <Box style={{ padding: 20 }}>
         {renderSelectedPage()}
       </Box>
+      <div>
+      <h1 className='title'>Quality Assuarance Page</h1>
+      {/* <Link to='/Profile'>Go to profile page</Link> */}
+      <br></br>
+      {/* <Link to='/About'>Go to About page</Link><br></br> */}
+      <h2 className='subtitle'>We love to hear from you !</h2>
+      <div class="Button1-container">
+      <Button className='Button1' onClick={() => navigate('/quality-assurance/AddConcern')}>Add Your Review</Button>
+      <Button className='Button1' onClick={() => navigate('/quality-assurance/UserConcerns')}>View All Reviews</Button>
+      </div>
+    </div>
+
     </>
   );
+
 }
