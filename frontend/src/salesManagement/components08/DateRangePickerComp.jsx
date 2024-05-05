@@ -1,5 +1,5 @@
-import {useEffect,useRef,useState} from 'react'
-import {DateRangePicker} from 'react-date-range'
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker
 
 import format from 'date-fns/format'
 import { addDays } from 'date-fns'
@@ -26,6 +26,7 @@ const DateRangePickerComp = () => {
 
     // get the target element to toggle
     const refOne = useRef(null)
+
 
     useEffect(() => {
         // set current date on component Load

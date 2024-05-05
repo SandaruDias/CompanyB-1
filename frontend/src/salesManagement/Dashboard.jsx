@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import backgroundImage from "../assets/" 
+
+import backgroundImage from "../assets/istockphoto-1488294044-1024x1024.jpg"
+
 import {
   AppBar,
   Toolbar,
@@ -122,9 +124,6 @@ export default function Dashboard() {
 
   return (
     <>
-    <div style={containerStyle}>
-      <h1>Welcome to My Website!</h1>
-    </div>
       <CssBaseline />
       <Box component="nav">
         <AppBar position="static">
@@ -140,16 +139,17 @@ export default function Dashboard() {
           </Toolbar>
         </AppBar>
       </Box>
+      <div>
       <button style={{ margin: '10px', padding: '5px 10px' }}> <Link to="/sales-management/sales-report">Sales Report</Link> </button>
       <button style={{ margin: '10px', padding: '5px 10px' }} className="home-button"> <Link to="/sales-management/sales-report">Invoices</Link> </button>
       <button style={{ margin: '10px', padding: '5px 10px' }} className="home-button"> <Link to="/sales-management/sales-report">Order Placement</Link> </button>
       <Box style={{ padding: 20 }}>
         {renderSelectedPage()}
       </Box>
-      <h1>
-            Select date
-      </h1>
-      
+      <div style={containerStyle}></div>
+      </div>
+
+   
     </>
   );
   
