@@ -146,7 +146,7 @@ export default function Dashboard() {
       </Box>
     
       <div>
-      <h1 className='title'>Quality Assuarance Page</h1>
+      <h1 className='title'>Quality Assuarance and Quality Control Page</h1>
       {/* <Link to='/Profile'>Go to profile page</Link> */}
       <br></br>
       {/* <Link to='/About'>Go to About page</Link><br></br> */}
@@ -155,6 +155,10 @@ export default function Dashboard() {
       <Button className='Button1' onClick={() => navigate('/quality-assurance/AddConcern')}>Add Your Review</Button>
       <Button className='Button1' onClick={() => navigate('/quality-assurance/UserConcerns')}>View All Reviews</Button>
       </div>
+      <div class="Button1-container">
+      <Button className='Button2' onClick={() => navigate('/quality-assurance/ContactUs')}>Contact Us</Button>
+      </div>
+
     </div>
     <Box className="rating-container"
       sx={{

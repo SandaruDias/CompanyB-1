@@ -1,0 +1,62 @@
+.title {
+    color: #333;
+    font-size: 3em; /* Increase the font size */
+    text-align: center; /* Center the text */
+    padding: 20px; /* Add some space around the text */
+    background-color: #f9f9f9; /* Add a light background color */
+    border-radius: 10px; /* Round the corners of the background */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.topic{
+    color: #1552a1;
+    font-size: 1.5em; /* Increase the font size */
+    text-align: center; 
+
+}
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.contact-info {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.manager-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.manager {
+    flex: 0 0 45%; /* Adjust width of each manager detail section */
+}
+
+.manager h3 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.manager ul {
+    list-style: none;
+    padding: 0;
+}
+
+.manager ul li {
+    margin-bottom: 5px;
+}
+
+.map {
+    margin-top: 20px;
+}
+
+.map iframe {
+    border: none;
+    border-radius: 8px;
+}

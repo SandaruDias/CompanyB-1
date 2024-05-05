@@ -10,6 +10,7 @@ import QualityAssurance from './qualityAssurance/Dashboard.jsx';
 import AddConcern from "./qualityAssurance/components07/AddConcerns.jsx";
 import UserConcerns from "./qualityAssurance/components07/UserConcerns.jsx";
 import SearchResults from "./qualityAssurance/components07/SearchResults.jsx";
+import ContactUs from "./qualityAssurance/components07/ContactUs.jsx";
 
 import Sales from './salesManagement/Dashboard.jsx';
 import TrainingSimulation from './trainingSimulation/Dashboard.jsx';
@@ -30,6 +31,7 @@ function App() {
         <Route path="/quality-assurance/AddConcern" element={<AddConcern />} />
         <Route path="/quality-assurance/UserConcerns" element={<UserConcerns />} />
         <Route path="/quality-assurance/UserConcerns/search-results" element={<SearchResults/>} />
+        <Route path="/quality-assurance/ContactUs" element={<ContactUs />} />
 
 
         
