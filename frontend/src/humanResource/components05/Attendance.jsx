@@ -31,9 +31,37 @@ const Attendance = () => {
         setID(e.target.value);
     };
 
-    const handleCheckIn = () => {
-        console.log('Checking in with ID:', id);
-    };
+    const handleCheckIn = async () => {
+        setLoading(true);
+        setError(null);
+        setSuccess(false);
+    
+        try {
+          const response = await fetch(
+            `http://localhost:8090/hr/employee/attendance/check-in/${id}`,
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ employeeId: id }), // Example of sending data with ID
+            }
+          );
+    
+          if (response.ok) {
+            setSuccess(true); // Indicate successful check-in
+            console.log(`Check-in successful for ID: ${id}`);
+          } else {
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'An error occurred');
+          }
+        } catch (err) {
+          setError(err.message);
+          console.error('Error during check-in:', err);
+        } finally {
+          setLoading(false);
+        }
+      };
 
     return (
         <Container className={classes.attendanceContainer}>
