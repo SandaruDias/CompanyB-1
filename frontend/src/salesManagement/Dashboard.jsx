@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
+import backgroundImage from "../assets/istockphoto-1488294044-1024x1024.jpg"
+
 import {
   AppBar,
   Toolbar,
@@ -25,7 +29,8 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
 import { DashboardPage, ProfilePage, SamplePage,LogoutPage } from "./components08/Pages";
 
-import DateRangePickerComp from "./components08/DateRangePickerComp.jsx";
+
+
 // Define styles
 const useStyles = makeStyles((theme) => ({
   menuSliderContainer: {
@@ -108,6 +113,17 @@ export default function Dashboard() {
     }
   };
 
+  const containerStyle = {
+    alignItems: 'center',
+    margin: '20',
+    width: '100vw', // Set container width to viewport width
+    height: '100vh', // Set container height to viewport height
+    background: `url(${backgroundImage}) no-repeat center center fixed`, // Set the image as background
+    backgroundSize: 'cover', // Cover the entire container with the background image
+  };
+
+
+
   return (
     <>
       <CssBaseline />
@@ -121,18 +137,21 @@ export default function Dashboard() {
             <Drawer open={open} anchor="right" onClose={toggleSlider}>
               {sideList()}
             </Drawer>
-          
+
           </Toolbar>
         </AppBar>
       </Box>
+      <div>
+      <button style={{ backgroundColor: 'aqua',color: 'white',margin: '10px', padding: '5px 10px' }}> <Link to="/sales-management/sales-report">Sales Report</Link> </button>
+      <button style={{ backgroundColor: 'aqua',color: 'white',margin: '10px', padding: '5px 10px' }} className="home-button"> <Link to="/sales-management/sales-report">Invoices</Link> </button>
+      <button style={{ backgroundColor: 'aqua',color: 'white',margin: '10px', padding: '5px 10px' }} className="home-button"> <Link to="/sales-management/order-place">Order Placement</Link> </button>
       <Box style={{ padding: 20 }}>
         {renderSelectedPage()}
       </Box>
-      <h1>
-            Select date
-      </h1>
-      <DateRangePickerComp/>
-      
+      <div style={containerStyle}></div>
+      </div>
+
+   
     </>
   );
   
