@@ -1,17 +1,39 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, Box } from "@material-ui/core";
 import SamplePageForm from "./SamplePageForm";
 import ApplicationForm from "./ApplicationForm";
 import EmployeeData from "./EmployeeData";
 import EditEmployeePage from "./EditEmployeePage";
 import AdministratorData from "./AdministratorData";
 import ApplicatData from "./ApplicatData";
+import Attendance from "./Attendance"; 
+import DashboardContent from "./DashboardContent";
+import ShortLeaveForm from "./ShortLeaveForm";
+
+
+
+// const PageContainer = ({ children }) => {
+//     return (
+//       <Box
+//         style={{
+//           backgroundColor: "lightgray", // Set your desired background color here
+//           minHeight: "100vh", // Ensure the container takes up the full height of the viewport
+//           display: "flex",
+//           flexDirection: "column",
+//           justifyContent: "center",
+//           alignItems: "center"
+//         }}
+//       >
+//         {children}
+//       </Box>
+//     );
+//   };
 
 // Define components for different pages
 export function DashboardPage() {
     return (
         <>
-        <Typography variant="h5">Contacts Page Content</Typography>;
+        <DashboardContent />
         
             
         </>
@@ -21,7 +43,7 @@ export function DashboardPage() {
 export function SamplePage() {
     return (
         <>
-            <Typography variant="h5">Contacts Page Content</Typography>;
+           
             <SamplePageForm /> 
         </>
     );
@@ -46,7 +68,10 @@ export function NewPage() {
 export function AttendancePage() {
     return (
         <>
-            <Typography variant="h5">Attendance Page Content</Typography>
+            
+            <Attendance />
+            
+
         </>
     );
 }
@@ -78,6 +103,15 @@ export function ApplicantDataPage() {
     );
 }
 
+export function ShortLeavePage() {
+    return (
+      <>
+        <ShortLeaveForm /> 
+        
+      </>
+    );
+}
+  
 export function LogoutPage() {
     return <Typography variant="h5">Contacts Page Content</Typography>;
 }
