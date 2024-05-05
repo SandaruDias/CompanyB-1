@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {
   Table,
@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
   title: {
     textAlign: "center",
     fontWeight: "bold",
-    backgroundColor: "#1E90FF", // Light blue background color
-    color: "#FFFFFF", // White text color
+    backgroundColor: "#1E90FF",
+    color: "#FFFFFF",
     padding: theme.spacing(2),
     margin: 0,
   },
@@ -44,41 +44,32 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1.1rem",
   },
   actionButton: {
-    marginRight: theme.spacing(1), // Add right margin between buttons
+    marginRight: theme.spacing(1),
   },
 }));
-
-
-
-const mockAdministrators = [
-  { id: 1, name: "Admin 1", email: "admin1@example.com", jobPosition: "System Administrator", division: "IT" },
-  { id: 2, name: "Admin 2", email: "admin2@example.com", jobPosition: "Network Administrator", division: "IT" },
-  // Add more mock administrators as needed
-];
 
 const AdministratorData = () => {
   const classes = useStyles();
   const [administrators, setAdministrators] = useState([]);
 
-
   useEffect(() => {
-    const fetchAdministrators = async () => {
-      try {
-        const response = await axios.get('http://localhost:8090/hr/administrator/getAll');
-        setAdministrators(response.data);
-      } catch (error) {
-        console.error('Error fetching administrators:', error);
-      }
-    };
-  
     fetchAdministrators();
   }, []);
 
+  const fetchAdministrators = async () => {
+    try {
+      const response = await axios.get('http://localhost:8090/hr/administrator/getAll');
+      setAdministrators(response.data);
+    } catch (error) {
+      console.error('Error fetching administrators:', error);
+    }
+  };
 
   const handleDeleteAdministrator = async (id) => {
     try {
-      await axios.delete(`http://localhost:8090/hr/administrator/delete/${id}`); 
-      setAdministrators(administrators.filter(admin => admin.id !== id));
+      await axios.delete(`http://localhost:8090/hr/administrator/delete/${id}`);
+      // Update administrators state by filtering out the deleted administrator
+      setAdministrators(administrators.filter(admin => admin.userId !== id));
       console.log(`Administrator with ID ${id} deleted successfully.`);
     } catch (error) {
       console.error('Error deleting administrator:', error);
@@ -103,15 +94,22 @@ const AdministratorData = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {administrators.map((administrator, index) => (
-              <TableRow key={administrator.id}>
-                <TableCell className={classes.tableCell}>{index+1}</TableCell>
-                <TableCell className={classes.tableCell}>{administrator.firstName + " " + administrator.lastName}</TableCell>
+            {administrators.map((administrator) => (
+              <TableRow key={administrator.userId}>
+                <TableCell className={classes.tableCell}>{administrator.userId}</TableCell>
+                <TableCell className={classes.tableCell}>{administrator.firstName} {administrator.lastName}</TableCell>
                 <TableCell className={classes.tableCell}>{administrator.email}</TableCell>
                 <TableCell className={classes.tableCell}>{administrator.position}</TableCell>
                 <TableCell className={classes.tableCell}>{administrator.division}</TableCell>
                 <TableCell className={classes.tableCell}>
-                  <Button variant="contained" color="secondary" className={classes.actionButton} onClick={() => handleDeleteAdministrator(administrator.id)}>Delete</Button>
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    className={classes.actionButton}
+                    onClick={() => handleDeleteAdministrator(administrator.userId)}
+                  >
+                    Delete
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}

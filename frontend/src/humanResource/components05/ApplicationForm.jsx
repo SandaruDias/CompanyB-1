@@ -9,7 +9,7 @@ import {
   FormControl,
   InputLabel,
   Select,
-  MenuItem
+  MenuItem,
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -25,51 +25,82 @@ const ApplicationForm = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    nationalID: "",
-    alternateNIC: "",
-    birthDate: "",
-    mobileNumber: "",
+    nicNo: "",
+    birthDay: "",
+    mobileNo: "",
     address: "",
     gender: "",
     email: "",
-    maritalStatus: "",
+    isMarried: "",
     position: "",
     division: "",
     education: "",
-    about: ""
+    about: "",
   });
+  const [formError, setFormError] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
 
-  
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const apiUrl = 'http://localhost:8090/hr/applicant/add'; 
+
+    // Check if all fields are filled
+    const isFormValid = Object.values(formData).every((value) => value.trim() !== "");
+    if (!isFormValid) {
+      setFormError(true);
+      return;
+    }
+
+    const apiUrl = "http://localhost:8090/hr/applicant/add";
 
     try {
       const response = await axios.post(apiUrl, formData);
-      console.log('Form submitted successfully:', response.data);
-      alert('Form submitted successfully!');
+      console.log("Form submitted successfully:", response.data);
+      alert("Form submitted successfully!");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        nicNo: "",
+        birthDay: "",
+        mobileNo: "",
+        address: "",
+        gender: "",
+        email: "",
+        isMarried: "",
+        position: "",
+        division: "",
+        education: "",
+        about: "",
+      });
+      setFormError(false);
     } catch (error) {
-      console.error('Failed to submit form:', error);
-      alert('Failed to submit form.');
+      console.error("Failed to submit form:", error);
+      alert("Failed to submit form.");
     }
   };
-
 
   return (
     <>
       <div style={{ backgroundColor: "#ADD8E6", padding: "10px" }}>
-      <Typography variant="h5" align="center" style={{ fontWeight: "bold" }}>Application Form</Typography>
+        <Typography variant="h5" align="center" style={{ fontWeight: "bold" }}>
+          Application Form
+        </Typography>
       </div>
       <form className={classes.form} onSubmit={handleSubmit}>
         <Grid container spacing={2}>
+          {formError && (
+            <Grid item xs={12}>
+              <Typography variant="body2" color="error">
+                Please fill out all fields.
+              </Typography>
+            </Grid>
+          )}
           <Grid item xs={6}>
             <TextField
               name="firstName"
@@ -90,41 +121,32 @@ const ApplicationForm = () => {
           </Grid>
           <Grid item xs={6}>
             <TextField
-              name="nationalID"
+              name="nicNo"
               label="National ID (NIC)"
               fullWidth
-              value={formData.nationalID}
+              value={formData.nicNo}
               onChange={handleChange}
             />
           </Grid>
           <Grid item xs={6}>
             <TextField
-              name="alternateNIC"
-              label="Alternate NIC"
-              fullWidth
-              value={formData.alternateNIC}
-              onChange={handleChange}
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <TextField
-              name="birthDate"
+              name="birthDay"
               label="Birth Date"
               type="date"
               fullWidth
               InputLabelProps={{
-                shrink: true
+                shrink: true,
               }}
-              value={formData.birthDate}
+              value={formData.birthDay}
               onChange={handleChange}
             />
           </Grid>
           <Grid item xs={6}>
             <TextField
-              name="mobileNumber"
+              name="mobileNo"
               label="Mobile Number"
               fullWidth
-              value={formData.mobileNumber}
+              value={formData.mobileNo}
               onChange={handleChange}
             />
           </Grid>
@@ -167,8 +189,8 @@ const ApplicationForm = () => {
               <InputLabel id="marital-status-label">Marital Status</InputLabel>
               <Select
                 labelId="marital-status-label"
-                name="maritalStatus"
-                value={formData.maritalStatus}
+                name="isMarried"
+                value={formData.isMarried}
                 onChange={handleChange}
               >
                 <MenuItem value="single">Single</MenuItem>
@@ -216,16 +238,18 @@ const ApplicationForm = () => {
               onChange={handleChange}
             />
           </Grid>
+          <Grid item xs={12}>
+            <Button
+              variant="contained"
+              color="primary"
+              fullWidth
+              style={{ marginTop: "1rem" }}
+              type="submit"
+            >
+              Submit
+            </Button>
+          </Grid>
         </Grid>
-        <Button
-          variant="contained"
-          color="primary"
-          fullWidth
-          style={{ marginTop: "1rem" }}
-          type="submit"
-        >
-          Submit
-        </Button>
       </form>
     </>
   );

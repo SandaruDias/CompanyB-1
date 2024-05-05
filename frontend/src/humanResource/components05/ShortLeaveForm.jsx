@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, TextField, Button, Container } from '@material-ui/core';
-import backgroundImage from './images/shr.jpg'; // Import your background image
+import axios from 'axios';
+import backgroundImage from './images/shr.jpg';
 
 const useStyles = makeStyles((theme) => ({
     shortLeaveContainer: {
@@ -9,18 +10,18 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
-        backgroundImage: `url(${backgroundImage})`, // Set the background image
+        backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        minHeight: '100vh', // Ensure the background covers the entire viewport height
+        minHeight: '100vh',
     },
     formContainer: {
         padding: theme.spacing(3),
         margin: 'auto',
-        backgroundColor: 'rgba(176, 196, 222, 0.9)', // Add a semi-transparent white background to the form container
-        borderRadius: theme.spacing(3), // Rounded corners
-        width: '80%', // Adjust the width of the form container
-        maxWidth: '600px', // Set a maximum width for the form container
+        backgroundColor: 'rgba(176, 196, 222, 0.9)',
+        borderRadius: theme.spacing(3),
+        width: '80%',
+        maxWidth: '600px',
     },
     title: {
         marginBottom: theme.spacing(2),
@@ -36,35 +37,55 @@ const useStyles = makeStyles((theme) => ({
 const ShortLeaveForm = () => {
     const classes = useStyles();
     const [employeeId, setEmployeeId] = useState('');
+    const [responseMessage, setResponseMessage] = useState('');
 
     const handleIDChange = (e) => {
         setEmployeeId(e.target.value);
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent default form submission behavior
-        console.log('Submitting short leave request for employee ID:', employeeId);
-        // Additional logic for submitting the short leave request can be added here
+    const handleApplyForShortLeave = async () => {
+        try {
+            const response = await axios.get(`http://localhost:8090/hr/administrator/attendancePermission/${employeeId}`);
+            console.log('Response from server:', response.data);
+
+            if (response.status === 200) {
+                setResponseMessage(response.data|| 'Request processed successfully');
+            } else {
+                setResponseMessage('Failed to fetch attendance permission');
+            }
+        } catch (error) {
+            console.error('Error fetching attendance permission:', error);
+            setResponseMessage('Failed to fetch attendance permission');
+        }
     };
 
     return (
         <Container className={classes.shortLeaveContainer}>
             <div className={classes.formContainer}>
-                <Typography variant="h5" style={{ textTransform: 'capitalize', marginBottom: '20px' }}>Apply for short leave</Typography>
-                <form onSubmit={handleSubmit}>
-                    <TextField
-                        id="employeeIdInput"
-                        label="Employee ID"
-                        value={employeeId}
-                        onChange={handleIDChange}
-                        placeholder="Enter Employee ID"
-                        fullWidth
-                        margin="normal"
-                    />
-                    <div className={classes.buttonContainer}>
-                        <Button variant="contained" color="primary" type="submit">Apply for Short Leave</Button>
-                    </div>
-                </form>
+                <Typography variant="h5" style={{ textTransform: 'capitalize', marginBottom: '20px' }}>Check Attendance Permission</Typography>
+                <TextField
+                    id="employeeIdInput"
+                    label="Employee ID"
+                    value={employeeId}
+                    onChange={handleIDChange}
+                    placeholder="Enter Employee ID"
+                    fullWidth
+                    margin="normal"
+                />
+                <div className={classes.buttonContainer}>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={handleApplyForShortLeave}
+                    >
+                        Get Attendance Permission
+                    </Button>
+                </div>
+                {responseMessage && (
+                    <Typography variant="body1" style={{ marginTop: '20px' }}>
+                        Response: {responseMessage}
+                    </Typography>
+                )}
             </div>
         </Container>
     );

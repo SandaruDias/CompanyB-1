@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {
   Table,
@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
   title: {
     textAlign: "center",
     fontWeight: "bold",
-    backgroundColor: "#1E90FF", // Light blue background color
-    color: "#FFFFFF", // White text color
+    backgroundColor: "#1E90FF",
+    color: "#FFFFFF",
     padding: theme.spacing(2),
     margin: 0,
   },
@@ -44,44 +44,52 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1.1rem",
   },
   actionButton: {
-    marginRight: theme.spacing(1), // Add right margin between buttons
+    marginRight: theme.spacing(1),
   },
 }));
 
 const EmployeeData = () => {
   const classes = useStyles();
-  const [employee, setEmployee] = useState([]);
+  const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
-    const fetchEmployee = async () => {
+    const fetchEmployees = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:8090/hr/employ/getAll"
-        );
-        setEmployee(response.data);
+        const response = await axios.get("http://localhost:8090/hr/employee/getAll");
+        setEmployees(response.data);
       } catch (error) {
-        console.error("Error fetching employee:", error);
-        // Handle error (e.g., display an error message)
+        console.error("Error fetching employees:", error);
       }
     };
 
-    fetchEmployee();
+    fetchEmployees();
   }, []);
 
   const handleEditEmployee = (id) => {
     console.log(`Edit employee with ID ${id}`);
   };
 
-  const handleDeleteEmployee = (id) => {
-    console.log(`Delete employee with ID ${id}`);
-    // Add logic to delete employee
+  const handleMakeAdministrator = async (employeeId) => {
+    try {
+      await axios.post(`http://localhost:8090/hr/administrator/create/${employeeId}`);
+      // Refresh the table by fetching the updated employee list
+      const response = await axios.get("http://localhost:8090/hr/employee/getAll");
+      setEmployees(response.data);
+    } catch (error) {
+      console.error('Error making employee an administrator:', error);
+    }
   };
 
-  const handleMakeAdministrator = (id) => {
-    console.log(`Make employee with ID ${id} as an administrator`);
-    // Add logic to make employee an administrator
+  const handleDeleteEmployee = async (id) => {
+    try {
+      await axios.delete(`http://localhost:8090/hr/employee/delete/${id}`);
+      // Refresh the table by fetching the updated employee list
+      const response = await axios.get("http://localhost:8090/hr/employee/getAll");
+      setEmployees(response.data);
+    } catch (error) {
+      console.error('Error deleting employee:', error);
+    }
   };
-
 
   return (
     <Paper className={classes.root}>
@@ -96,22 +104,22 @@ const EmployeeData = () => {
               <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Name</TableCell>
               <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Email</TableCell>
               <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Job Position</TableCell>
-              <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Division</TableCell> 
+              <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Division</TableCell>
               <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {employee.map((employee, index) => (
-              <TableRow key={employee.id}>
-                <TableCell className={classes.tableCell}>{index+1}</TableCell>
-                <TableCell className={classes.tableCell}>{employee.firstName + " " + employee.lastName}</TableCell>
+            {employees.map((employee) => (
+              <TableRow key={employee.userId}>
+                <TableCell className={classes.tableCell}>{employee.userId}</TableCell>
+                <TableCell className={classes.tableCell}>{employee.firstName} {employee.lastName}</TableCell>
                 <TableCell className={classes.tableCell}>{employee.email}</TableCell>
                 <TableCell className={classes.tableCell}>{employee.position}</TableCell>
                 <TableCell className={classes.tableCell}>{employee.division}</TableCell>
                 <TableCell className={classes.tableCell}>
-                  <Button variant="contained" color="primary" className={classes.actionButton} onClick={() => handleEditEmployee(employee.id)}>Edit</Button>
-                  <Button variant="contained" color="secondary" className={classes.actionButton} onClick={() => handleDeleteEmployee(employee.id)}>Delete</Button>
-                  <Button variant="contained" color="default" className={classes.actionButton} onClick={() => handleMakeAdministrator(employee.id)}>Make Admin</Button>
+                  <Button variant="contained" color="primary" className={classes.actionButton} onClick={() => handleEditEmployee(employee.userId)}>Edit</Button>
+                  <Button variant="contained" color="secondary" className={classes.actionButton} onClick={() => handleDeleteEmployee(employee.userId)}>Delete</Button>
+                  <Button variant="contained" color="default" className={classes.actionButton} onClick={() => handleMakeAdministrator(employee.userId)}>Make As Admin</Button>
                 </TableCell>
               </TableRow>
             ))}

@@ -7,6 +7,7 @@ import {
   makeStyles,
   Paper
 } from "@material-ui/core";
+import axios from "axios"; // Import Axios for making API calls
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,8 +20,18 @@ const useStyles = makeStyles((theme) => ({
     gap: theme.spacing(2),
   },
   title: {
-    textAlign: "center", // Center align the title
-    fontWeight: "bold", // Make the title bold
+    textAlign: "center",
+    fontWeight: "bold",
+  },
+  buttonContainer: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: theme.spacing(2),
+  },
+  errorText: {
+    color: "red",
+    textAlign: "center",
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -28,20 +39,40 @@ const EditEmployeePage = () => {
   const classes = useStyles();
   const { id } = useParams();
   const [employee, setEmployee] = useState({
-    name: "",
-    email: "",
-    jobPosition: "",
-    contactNumber: "",
+    salary: "",
+    allowance: "",
+    otRate: "",
+    workingDays: ""
   });
+  const [formError, setFormError] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setEmployee({ ...employee, [name]: value });
   };
+  const [employeeId, setEmployeeId] = useState('');
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Updated employee data:", employee);
+    const handleIDChange = (e) => {
+        setEmployeeId(e.target.value);
+    };
+
+  const handleUpdateEmployee = async () => {
+    if (!employee.salary || !employee.allowance || !employee.otRate || !employee.workingDays) {
+      setFormError(true);
+      return;
+    }
+
+    try {
+      const response = await axios.patch(
+        `http://localhost:8090/hr/employee/updateSalaryInfo/${employeeId}`,
+        employee
+      );
+
+      console.log("Updated employee data:", response.data);
+      setFormError(false);
+    } catch (error) {
+      console.error("Error updating employee data:", error);
+    }
   };
 
   return (
@@ -49,39 +80,57 @@ const EditEmployeePage = () => {
       <Typography variant="h5" className={classes.title} gutterBottom>
         Edit Employee
       </Typography>
-      <form className={classes.form} onSubmit={handleSubmit}>
+      <div className={classes.form}>
         <TextField
-          name="name"
-          label="Name"
-          value={employee.name}
+          id="employeeIdInput"
+          label="Employee ID"
+          value={employeeId}
+          onChange={handleIDChange}
+          
+        />
+        <TextField
+          name="salary"
+          label="Salary"
+          value={employee.salary}
           onChange={handleInputChange}
           required
         />
         <TextField
-          name="email"
-          label="Email"
-          value={employee.email}
+          name="allowance"
+          label="New Allowance"
+          value={employee.allowance}
           onChange={handleInputChange}
           required
         />
         <TextField
-          name="jobPosition"
-          label="Job Position"
-          value={employee.jobPosition}
+          name="otRate"
+          label="OT Rate"
+          value={employee.otRate}
           onChange={handleInputChange}
           required
         />
         <TextField
-          name="contactNumber"
-          label="Contact Number"
-          value={employee.contactNumber}
+          name="workingDays"
+          label="Working Days"
+          value={employee.workingDays}
           onChange={handleInputChange}
           required
         />
-        <Button type="submit" variant="contained" color="primary">
-          Update Employee
-        </Button>
-      </form>
+        {formError && (
+          <Typography variant="body2" className={classes.errorText}>
+            Please fill out all required fields.
+          </Typography>
+        )}
+        <div className={classes.buttonContainer}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleUpdateEmployee}
+          >
+            Update Employee Salary Details
+          </Button>
+        </div>
+      </div>
     </Paper>
   );
 };
