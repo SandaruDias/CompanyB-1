@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
   title: {
     textAlign: "center",
     fontWeight: "bold",
-    backgroundColor: "#1E90FF", // Light blue background color
-    color: "#FFFFFF", // White text color
+    backgroundColor: "#1E90FF", 
+    color: "#FFFFFF", 
     padding: theme.spacing(2),
     margin: 0,
   },
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1.1rem",
   },
   actionButton: {
-    marginRight: theme.spacing(1), // Add right margin between buttons
+    marginRight: theme.spacing(1), 
   },
 }));
 
@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
 const mockAdministrators = [
   { id: 1, name: "Admin 1", email: "admin1@example.com", jobPosition: "System Administrator", division: "IT" },
   { id: 2, name: "Admin 2", email: "admin2@example.com", jobPosition: "Network Administrator", division: "IT" },
-  // Add more mock administrators as needed
+  
 ];
 
 const AdministratorData = () => {

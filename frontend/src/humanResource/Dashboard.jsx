@@ -60,7 +60,7 @@ export default function Dashboard() {
 
   const handleListItemClick = (text) => {
     setSelectedPage(text);
-    toggleSlider(); // Optionally close the drawer upon selection
+    toggleSlider(); 
   };
 
   const sideList = () => (
@@ -105,11 +105,11 @@ export default function Dashboard() {
     switch (selectedPage) {
       case "Dashboard":
         return <DashboardPage />;
-      case "Employee Data": // New case
+      case "Employee Data": 
         return <EmployeeDataPage />;
-      case "Administrator Data": // New case
+      case "Administrator Data": 
         return <AdministratorDataPage />;
-      case "Applicant Data": // New case
+      case "Applicant Data": 
         return <ApplicantDataPage />;
       case "Employee Form":
         return <SamplePage />;

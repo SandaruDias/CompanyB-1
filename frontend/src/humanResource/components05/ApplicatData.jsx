@@ -19,8 +19,8 @@ const useStyles = makeStyles((theme) => ({
   title: {
     textAlign: "center",
     fontWeight: "bold",
-    backgroundColor: "#1E90FF", // Light blue background color
-    color: "#FFFFFF", // White text color
+    backgroundColor: "#1E90FF", 
+    color: "#FFFFFF", 
     padding: theme.spacing(2),
     margin: 0,
   },

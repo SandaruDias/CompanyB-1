@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, TextField, Button, Container, Grid, Paper } from '@material-ui/core';
-import backgroundImage from './images/att.jpg'; // Import your background image
+import backgroundImage from './images/att.jpg'; 
 
 const useStyles = makeStyles((theme) => ({
     attendanceContainer: {
@@ -9,16 +9,16 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
-        backgroundImage: `url(${backgroundImage})`, // Set the background image
+        backgroundImage: `url(${backgroundImage})`, 
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        minHeight: '100vh', // Ensure the background covers the entire viewport height
+        minHeight: '100vh', 
     },
     formContainer: {
         padding: theme.spacing(3),
-        maxWidth: '450px', // Decrease the max width of the form container
-        margin: 'auto', // Center the form horizontally
-        backgroundColor: 'rgba(176, 196, 222, 0.9)', // Change the background color
+        maxWidth: '450px', 
+        margin: 'auto', 
+        backgroundColor: 'rgba(176, 196, 222, 0.9)', 
         borderRadius: theme.spacing(3),
     },
     title: {

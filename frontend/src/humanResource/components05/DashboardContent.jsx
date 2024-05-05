@@ -14,12 +14,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: 'center',
   },
   welcomeMessage: {
-    color: '#333333', // Light black color
+    color: '#333333', 
     marginBottom: theme.spacing(4),
     textAlign: 'center',
     fontWeight: 'bold',
     fontSize: '3rem',
-    backgroundColor: '#F0F0F0', // Light gray background color
+    backgroundColor: '#F0F0F0', 
     padding: theme.spacing(2),
     borderRadius: theme.spacing(1),
   },
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
   divisionCard: {
-    background: '#008080', // Teal color
+    background: '#008080', 
     color: theme.palette.common.white,
     minHeight: 150,
   },

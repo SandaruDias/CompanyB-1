@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, TextField, Button, Container } from '@material-ui/core';
-import backgroundImage from './images/shr.jpg'; // Import your background image
+import backgroundImage from './images/shr.jpg';
 
 const useStyles = makeStyles((theme) => ({
     shortLeaveContainer: {
@@ -9,18 +9,18 @@ const useStyles = makeStyles((theme) => ({
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
-        backgroundImage: `url(${backgroundImage})`, // Set the background image
+        backgroundImage: `url(${backgroundImage})`, 
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        minHeight: '100vh', // Ensure the background covers the entire viewport height
+        minHeight: '100vh', 
     },
     formContainer: {
         padding: theme.spacing(3),
         margin: 'auto',
-        backgroundColor: 'rgba(176, 196, 222, 0.9)', // Add a semi-transparent white background to the form container
-        borderRadius: theme.spacing(3), // Rounded corners
-        width: '80%', // Adjust the width of the form container
-        maxWidth: '600px', // Set a maximum width for the form container
+        backgroundColor: 'rgba(176, 196, 222, 0.9)', 
+        borderRadius: theme.spacing(3),
+        width: '80%', 
+        maxWidth: '600px', 
     },
     title: {
         marginBottom: theme.spacing(2),
@@ -42,9 +42,9 @@ const ShortLeaveForm = () => {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent default form submission behavior
+        e.preventDefault(); 
         console.log('Submitting short leave request for employee ID:', employeeId);
-        // Additional logic for submitting the short leave request can be added here
+       
     };
 
     return (

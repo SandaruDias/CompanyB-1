@@ -20,8 +20,8 @@ const useStyles = makeStyles((theme) => ({
   title: {
     textAlign: "center",
     fontWeight: "bold",
-    backgroundColor: "#1E90FF", // Light blue background color
-    color: "#FFFFFF", // White text color
+    backgroundColor: "#1E90FF", 
+    color: "#FFFFFF",
     padding: theme.spacing(2),
     margin: 0,
   },
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1.1rem",
   },
   actionButton: {
-    marginRight: theme.spacing(1), // Add right margin between buttons
+    marginRight: theme.spacing(1), 
   },
 }));
 
@@ -61,7 +61,7 @@ const EmployeeData = () => {
         setEmployee(response.data);
       } catch (error) {
         console.error("Error fetching employee:", error);
-        // Handle error (e.g., display an error message)
+        
       }
     };
 
