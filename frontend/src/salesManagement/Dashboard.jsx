@@ -29,8 +29,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
 import { DashboardPage, ProfilePage, SamplePage,LogoutPage } from "./components08/Pages";
 
-
-
+//import DateRangePickerComp from "./components08/DateRangePickerComp.jsx";
 // Define styles
 const useStyles = makeStyles((theme) => ({
   menuSliderContainer: {
@@ -148,10 +147,9 @@ export default function Dashboard() {
       <Box style={{ padding: 20 }}>
         {renderSelectedPage()}
       </Box>
-      <div style={containerStyle}></div>
-      </div>
-
-   
+      <button style={{ margin: '10px', padding: '5px 10px' }}> <Link to="/sales-management/order-place">Order Placement</Link> </button>
+  
+      
     </>
   );
   
