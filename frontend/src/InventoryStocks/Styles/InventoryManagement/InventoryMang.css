@@ -1,0 +1,45 @@
+.body{
+    background-color:  #212A31;}
+  
+  .inventory-container h1 {
+    font-size: 60px;
+  }
+  .inventory-header {
+    margin-top: 40px;
+    text-align: center;
+    font-family: "Rubik", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-optical-sizing: auto;
+    background-color: #b2b2b0;
+    font-size: 40px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    height: fit-content;
+    width: fit-content;
+    position: relative;
+    left: 16%;
+    margin-top: 12%;
+  }
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  .inventory-header button {
+    padding: 7px 23px 7px 23px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #748D92;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .inventory-header button:hover {
+    background-color: #103d4f;
+  }
+  
