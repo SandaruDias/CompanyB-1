@@ -2,27 +2,33 @@ import { Container, CssBaseline, Typography } from "@material-ui/core";
 import FileUploadform from "./FileUploadform";
 import TrainingPage from './TrainingPage/TrainingPage'
 import RecipeReviewCard from "./RecipeReviewCard";
-
+import { Link } from 'react-router-dom';
 
 // Define components for different pages
 export function DashboardPage() {
     return (
-        <>
+        <div>
             <RecipeReviewCard />
-        </>
+        </div>
     )
 }
 
 export function SimulationsPage() {
     return(
-        <Container component="main" maxWidth="xs">
-            <CssBaseline/>
-            <FileUploadform/>
-        </Container>
+        <div>
+            <nav>
+                <Link to="/training-simulation">Back to Dashboard</Link> {/* Ensure the path matches your routing setup */}
+            </nav>
+            <Container component="main" maxWidth="xs">
+                <CssBaseline />
+                <FileUploadform />
+            </Container>
+        </div>
     );
 }
 
-export function ProfilePage() {
+
+export function CoursesPage() {
     return (
         <div>
             <TrainingPage />
@@ -30,6 +36,6 @@ export function ProfilePage() {
     )
 }
 
-export function LogoutPage() {
-    return <Typography variant="h5">Contacts Page Content Training & Simulation</Typography>;
+export function PrototypePage() {
+    return <Typography variant="h5">Protoyping Form</Typography>;
 }
