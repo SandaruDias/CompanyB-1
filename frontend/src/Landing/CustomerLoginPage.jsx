@@ -57,7 +57,7 @@ const CustomerLoginPage = () => {
 	};
 
 	const handleSignUpClick = () => {
-		alert("Contact the HR Manager"); // Show an alert when sign up button is clicked
+		navigate('/customer-register') // Show an alert when sign up button is clicked
 	};
 
 	return (
