@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Link,useNavigate } from 'react-router-dom';
 import './Dashboard.css';
-import AddConcern from "./components07/AddConcerns";
+import Rating from '@mui/material/Rating';
+import { styled } from '@mui/material/styles';
+
+
 
 import {
   AppBar,
@@ -113,6 +116,12 @@ export default function Dashboard() {
     }
   };
   const navigate = useNavigate();
+  
+  const StyledRating = styled(Rating)({
+    '& .MuiRating-iconHover': {
+      color: '#ff3d47',
+    },
+  });
 
 
 
@@ -135,9 +144,7 @@ export default function Dashboard() {
           </Toolbar>
         </AppBar>
       </Box>
-      <Box style={{ padding: 20 }}>
-        {renderSelectedPage()}
-      </Box>
+    
       <div>
       <h1 className='title'>Quality Assuarance Page</h1>
       {/* <Link to='/Profile'>Go to profile page</Link> */}
@@ -149,7 +156,21 @@ export default function Dashboard() {
       <Button className='Button1' onClick={() => navigate('/quality-assurance/UserConcerns')}>View All Reviews</Button>
       </div>
     </div>
-
+    <Box className="rating-container"
+      sx={{
+        '& > legend': { mt: 2 },
+      }}
+    >
+      <Typography className="rating-legend" component="legend">
+        Rate Us
+      </Typography>
+      <StyledRating
+        className="rating-stars"
+        name="customized-10"
+        defaultValue={2}
+        max={10}
+      />
+    </Box>
     </>
   );
 
