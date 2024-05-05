@@ -5,7 +5,11 @@ import CustomerOrder from './customerOrder/Dashboard.jsx';
 import Finance from './financeManagement/Dashboard.jsx';
 import HumanResources from './humanResource/Dashboard.jsx';
 import Manufacturing from './manufacturing/Dashboard.jsx';
+
 import QualityAssurance from './qualityAssurance/Dashboard.jsx';
+import AddConcern from "./qualityAssurance/components07/AddConcerns.jsx";
+import UserConcerns from "./qualityAssurance/components07/UserConcerns.jsx";
+
 import Sales from './salesManagement/Dashboard.jsx';
 import TrainingSimulation from './trainingSimulation/Dashboard.jsx';
 
@@ -20,7 +24,12 @@ function App() {
         <Route path="/hr-management" element={<Inventory />} />
         <Route path="/inventory-management" element={<HumanResources />} />
         <Route path="/manufacturing" element={<Manufacturing />} />
-        <Route path="/quality-assurance" element={<QualityAssurance />} />
+        
+        <Route path="/quality-assurance" element={<QualityAssurance/>}/>
+        <Route path="/quality-assurance/AddConcern" element={<AddConcern />} />
+        <Route path="/quality-assurance/UserConcerns" element={<UserConcerns />} />
+
+        
         <Route path="/sales-management" element={<Sales />} />
         <Route path="/training-simulation" element={<TrainingSimulation />} />
       </Routes>
