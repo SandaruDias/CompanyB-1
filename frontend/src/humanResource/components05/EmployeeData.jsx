@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import axios from "axios";
 import {
   Table,
   TableHead,
@@ -47,14 +48,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const mockEmployees = [
-  { id: 1, name: "John Doe", email: "john@example.com", jobPosition: "Software Engineer", division: "IT" },
-  { id: 2, name: "Jane Smith", email: "jane@example.com", jobPosition: "HR Manager", division: "HR" },
-  // Add more mock employees as needed
-];
-
 const EmployeeData = () => {
   const classes = useStyles();
+  const [employee, setEmployee] = useState([]);
+
+  useEffect(() => {
+    const fetchEmployee = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:8090/hr/employ/getAll"
+        );
+        setEmployee(response.data);
+      } catch (error) {
+        console.error("Error fetching employee:", error);
+        // Handle error (e.g., display an error message)
+      }
+    };
+
+    fetchEmployee();
+  }, []);
 
   const handleEditEmployee = (id) => {
     console.log(`Edit employee with ID ${id}`);
@@ -70,6 +82,7 @@ const EmployeeData = () => {
     // Add logic to make employee an administrator
   };
 
+
   return (
     <Paper className={classes.root}>
       <Typography variant="h5" className={classes.title}>
@@ -83,18 +96,18 @@ const EmployeeData = () => {
               <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Name</TableCell>
               <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Email</TableCell>
               <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Job Position</TableCell>
-              <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Division</TableCell> {/* Changed column name */}
+              <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Division</TableCell> 
               <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {mockEmployees.map(employee => (
+            {employee.map((employee, index) => (
               <TableRow key={employee.id}>
-                <TableCell className={classes.tableCell}>{employee.id}</TableCell>
-                <TableCell className={classes.tableCell}>{employee.name}</TableCell>
+                <TableCell className={classes.tableCell}>{index+1}</TableCell>
+                <TableCell className={classes.tableCell}>{employee.firstName + " " + employee.lastName}</TableCell>
                 <TableCell className={classes.tableCell}>{employee.email}</TableCell>
-                <TableCell className={classes.tableCell}>{employee.jobPosition}</TableCell>
-                <TableCell className={classes.tableCell}>{employee.division}</TableCell> {/* Render division instead of contact number */}
+                <TableCell className={classes.tableCell}>{employee.position}</TableCell>
+                <TableCell className={classes.tableCell}>{employee.division}</TableCell>
                 <TableCell className={classes.tableCell}>
                   <Button variant="contained" color="primary" className={classes.actionButton} onClick={() => handleEditEmployee(employee.id)}>Edit</Button>
                   <Button variant="contained" color="secondary" className={classes.actionButton} onClick={() => handleDeleteEmployee(employee.id)}>Delete</Button>
