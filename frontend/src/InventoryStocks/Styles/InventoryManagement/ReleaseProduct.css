@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+.release-product-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+  background-color: #b6b6ba;
+  gap: 20px;
+  width: 60%;
+  position: relative;
+  left: 20%;
+  margin-top: 90px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.release-product-container h1 {
+  font-size: 50px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin-top: 0;
+}
+
+.inputs input {
+  width: 97.5%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+.release-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #748D92;
+  color: #100f0f;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #125068;
+}
