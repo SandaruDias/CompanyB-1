@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import axios from "axios";
 import {
   Table,
   TableHead,
@@ -47,6 +48,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 const mockAdministrators = [
   { id: 1, name: "Admin 1", email: "admin1@example.com", jobPosition: "System Administrator", division: "IT" },
   { id: 2, name: "Admin 2", email: "admin2@example.com", jobPosition: "Network Administrator", division: "IT" },
@@ -55,10 +58,31 @@ const mockAdministrators = [
 
 const AdministratorData = () => {
   const classes = useStyles();
+  const [administrators, setAdministrators] = useState([]);
 
-  const handleDeleteAdministrator = (id) => {
-    console.log(`Delete administrator with ID ${id}`);
-    // Add logic to delete administrator
+
+  useEffect(() => {
+    const fetchAdministrators = async () => {
+      try {
+        const response = await axios.get('http://localhost:8090/hr/administrator/getAll');
+        setAdministrators(response.data);
+      } catch (error) {
+        console.error('Error fetching administrators:', error);
+      }
+    };
+  
+    fetchAdministrators();
+  }, []);
+
+
+  const handleDeleteAdministrator = async (id) => {
+    try {
+      await axios.delete(`http://localhost:8090/hr/administrator/delete/${id}`); 
+      setAdministrators(administrators.filter(admin => admin.id !== id));
+      console.log(`Administrator with ID ${id} deleted successfully.`);
+    } catch (error) {
+      console.error('Error deleting administrator:', error);
+    }
   };
 
   return (
@@ -79,12 +103,12 @@ const AdministratorData = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {mockAdministrators.map(administrator => (
+            {administrators.map((administrator, index) => (
               <TableRow key={administrator.id}>
-                <TableCell className={classes.tableCell}>{administrator.id}</TableCell>
-                <TableCell className={classes.tableCell}>{administrator.name}</TableCell>
+                <TableCell className={classes.tableCell}>{index+1}</TableCell>
+                <TableCell className={classes.tableCell}>{administrator.firstName + " " + administrator.lastName}</TableCell>
                 <TableCell className={classes.tableCell}>{administrator.email}</TableCell>
-                <TableCell className={classes.tableCell}>{administrator.jobPosition}</TableCell>
+                <TableCell className={classes.tableCell}>{administrator.position}</TableCell>
                 <TableCell className={classes.tableCell}>{administrator.division}</TableCell>
                 <TableCell className={classes.tableCell}>
                   <Button variant="contained" color="secondary" className={classes.actionButton} onClick={() => handleDeleteAdministrator(administrator.id)}>Delete</Button>

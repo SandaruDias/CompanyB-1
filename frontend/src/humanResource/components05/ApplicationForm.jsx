@@ -50,7 +50,7 @@ const ApplicationForm = () => {
   
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const apiUrl = 'http://localhost:8090/hr/applicant/add'; // Replace with your actual API URL
+    const apiUrl = 'http://localhost:8090/hr/applicant/add'; 
 
     try {
       const response = await axios.post(apiUrl, formData);
