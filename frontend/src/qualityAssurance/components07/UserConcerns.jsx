@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './UserConcerns.css';
 import Button from '@mui/material/Button';
+import axios from 'axios';
+
 
 
 
@@ -20,7 +22,7 @@ function UserConcerns() {
                 // Save the data to local storage or context
                 localStorage.setItem('searchData', JSON.stringify(response.data));
                 // Navigate to the search results page
-                navigate('/search-results');
+                navigate('/quality-assurance/UserConcerns/search-results');
             })
             .catch(error => {
                 console.error('Error fetching data: ', error);
@@ -72,9 +74,11 @@ useEffect(() => {
     
 
     return (
-        <div>
-            <input className='searchText' type="text" value={text} onChange={e => setText(e.target.value)} />
-            <Button className='Button1' onClick={handleSearchClick}>Search</Button>
+        <> 
+        <input className='searchText' type="text" value={text} onChange={e => setText(e.target.value)} />
+        <Button className='Button1' onClick={handleSearchClick}>Search</Button>
+        
+        <div className='container'>
             {data && data.map((item, index) => (
               <div className='output'key={index}>
                   <p>Email              :{item.email}</p>
@@ -88,6 +92,8 @@ useEffect(() => {
               </div>
           ))}
         </div>
+        </>
+       
     );
 }
 

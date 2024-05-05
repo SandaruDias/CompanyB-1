@@ -1,13 +1,14 @@
 import React from 'react';
+import './SearchResults.css';
 
 
 function SearchResults() {
     const data = JSON.parse(localStorage.getItem('searchData'));
 
     return (
-        <div>
+        <div className="container">
             {data && data.map((item, index) => (
-              <div key={index}>
+              <div key={index} className="box">
                   <p>Email: {item.email}</p>
                   <p>Contact Number: {item.contact_number}</p>
                   <p>Name: {item.name}</p>

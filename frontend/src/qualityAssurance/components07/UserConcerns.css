@@ -1,4 +1,9 @@
 
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 .searchText {
     width: 300px;
     height: 30px;
@@ -26,20 +31,12 @@
 }
 
 .output {
-    background-color: white;
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
-    padding: 20px;
-    border-radius: 5px;
-    margin: 20px 0;
-    width: 500px;
-    font-family: 'Courier New', Courier, monospace;
-    justify-content: center;
-    align-items: center;
+    flex-basis: calc(50% - 10px);
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-.output p {
-    margin: 0 0 10px 0;
-    line-height: 1.6;
-    justify-content: center;
-    align-items: center;
-}
+
