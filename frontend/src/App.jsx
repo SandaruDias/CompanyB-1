@@ -12,6 +12,7 @@ import Manufacturing from './manufacturing/Dashboard.jsx';
 import QualityAssurance from './qualityAssurance/Dashboard.jsx';
 import Sales from './salesManagement/Dashboard.jsx';
 import TrainingSimulation from './trainingSimulation/Dashboard.jsx';
+import TrainingSimulationManagerPortal from './trainingSimulation/ManagerPortal.jsx';
 import { SimulationsPage } from "./trainingSimulation/components03/Pages.jsx";
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/quality-assurance" element={<QualityAssurance />} />
         <Route path="/sales-management" element={<Sales />} />
         <Route path="/training-simulation" element={<TrainingSimulation />} />
+        <Route path="/training-simulation/managerportal" element={<TrainingSimulationManagerPortal />} />
       </Routes>
     </Router>
   );

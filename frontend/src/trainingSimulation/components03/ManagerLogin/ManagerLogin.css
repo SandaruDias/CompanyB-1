@@ -1,0 +1,148 @@
+.card-row {
+    justify-content: center;
+    display: flex;
+  }
+  
+  
+.header{
+    font-family: Montserrat;
+    font-weight: bolder;
+    letter-spacing: -1px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.description{
+    font-family: Montserrat;
+    justify-content: center;
+    display:flex;
+
+}
+
+.card-row {
+    justify-content: center;
+    display: flex;
+  }
+  
+  
+.header{
+    font-family: Montserrat;
+    font-weight: bolder;
+    letter-spacing: -1px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.description{
+    font-family: Montserrat;
+    justify-content: center;
+    display:flex;
+
+}
+
+.portal-container{
+
+    width: 70rem;
+    margin: 0 0 1rem 0;
+    border-radius: 0.5rem;
+    box-shadow: 1px 6px 6px #cccccc;
+    background-color: white;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.portal-title{
+    margin: 0.5rem 0 0 3rem;
+    font-family: poppins;
+    letter-spacing: -1px; 
+    font-size:x-large;
+    float: left;
+    display:flex;
+
+
+}
+
+.portal-description{
+    font-family: poppins;
+    text-align: center;
+    width: 50vh;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    background-color: #f2f2f2;
+    color: Black;
+    text-decoration: none;
+    margin: 1 0 1rem;
+    font-size: medium;
+    font-weight: 400 
+}
+
+.portal-btn{
+
+    
+    text-align: center;
+    width: 30%;
+    border-radius: 5px;
+    font-family: poppins;
+    padding: 0.5rem 1rem;
+    background-color: #2563eb;
+    color: white;
+    text-decoration: none;
+    margin: 1rem 1rem 1rem 40rem;
+    font-size: larger;
+    cursor: pointer; /* Cursor style */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+}
+  
+.portal-btn:hover {
+    background-color: #005aba; /* Button background color on hover */
+}
+
+
+.form-contailer{
+    margin-top:10px;
+}
+
+  
+.form-row {
+    display: flex; /* Use flexbox */
+    align-items: center; /* Align items vertically */
+    margin-bottom: 20px; /* Add spacing between rows */
+  }
+  
+  label {
+    flex: 1; /* Take up one unit of available space */
+    margin: 0 3vh 0 5vh; /* Add spacing between label and input */
+    font-family: poppins;
+    max-width: 500px; /* Set a fixed width for the label */
+    border-radius: 5px;
+    padding: 0.5rem 10rem;
+    background-color: #f2f2f2;
+    color: Black;
+    text-align: start;
+    font-size: medium;
+    font-weight: 400;
+    white-space: nowrap;
+
+
+  }
+  
+  .forminput {
+    flex :2;
+    min-width: 50vh;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    margin: 0 1rem ;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }

@@ -22,8 +22,7 @@ import {
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
-import { DashboardPage, CoursesPage, SimulationsPage,PrototypePage } from "./components03/Pages"
-
+import {ManagerPage } from "./components03/Pages"
 
 // Define styles
 const useStyles = makeStyles((theme) => ({
@@ -59,56 +58,19 @@ export default function Dashboard() {
     toggleSlider(); // Optionally close the drawer upon selection
   };
 
-  const sideList = () => (
-    <Box className={classes.menuSliderContainer} component="div">
-      <Avatar
-        className={classes.avatar}
-        src="https://i.ibb.co/rx5DFbs/avatar.png"
-        alt="Juaneme8"
-      />
-      <Divider />
-      <List>
-        {[
-          { Icon: DashboardIcon, text: "Dashboard" },
-          { Icon: AssignmentInd, text: "Simulations" },
-          { Icon: PersonIcon, text: "Courses" },
-          { Icon: LogoutIcon, text: "Prototyping" },
-        ].map((item, index) => (
-          <ListItem
-            className={classes.listItem}
-            button
-            key={index}
-            onClick={() => handleListItemClick(item.text)}
-          >
-            <ListItemIcon className={classes.listItem}>
-              <item.Icon />
-            </ListItemIcon>
-            <ListItemText primary={item.text} />
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
+ 
 
   // Render the selected component based on the current state
   const renderSelectedPage = () => {
     switch (selectedPage) {
       case "Dashboard":
-        return <DashboardPage />;
-      case "Simulations":
-        return <SimulationsPage />;
-      case "Courses":
-        return <CoursesPage />;
-      case "Prototyping":
-        return <PrototypePage />;
-      default:
-        return <DashboardPage />;
+        return <ManagerPage />;
     }
   };
 
   return (
     <>
-      <CssBaseline />
+      
       <Box component="nav">
         <AppBar position="static">
           <Toolbar>
@@ -116,9 +78,7 @@ export default function Dashboard() {
               <Menu />
             </IconButton>
             <Typography variant="h6">Company B</Typography>
-            <Drawer open={open} anchor="right" onClose={toggleSlider}>
-              {sideList()}
-            </Drawer>
+        
             
           </Toolbar>
         </AppBar>
