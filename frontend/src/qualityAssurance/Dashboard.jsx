@@ -1,4 +1,11 @@
 import React, { useState } from "react";
+import { Link,useNavigate } from 'react-router-dom';
+import './Dashboard.css';
+import Rating from '@mui/material/Rating';
+import { styled } from '@mui/material/styles';
+
+
+
 import {
   AppBar,
   Toolbar,
@@ -13,7 +20,8 @@ import {
   makeStyles,
   CssBaseline,
   Drawer,
-  Typography
+  Typography,
+  Button
 } from "@material-ui/core";
 import {
   Menu,
@@ -87,7 +95,10 @@ export default function Dashboard() {
         ))}
       </List>
     </Box>
+    
   );
+
+    
 
   // Render the selected component based on the current state
   const renderSelectedPage = () => {
@@ -104,9 +115,20 @@ export default function Dashboard() {
         return <DashboardPage />;
     }
   };
+  const navigate = useNavigate();
+  
+  const StyledRating = styled(Rating)({
+    '& .MuiRating-iconHover': {
+      color: '#ff3d47',
+    },
+  });
+
+
 
   return (
-    <>
+
+    
+<>
       <CssBaseline />
       <Box component="nav">
         <AppBar position="static">
@@ -122,9 +144,38 @@ export default function Dashboard() {
           </Toolbar>
         </AppBar>
       </Box>
-      <Box style={{ padding: 20 }}>
-        {renderSelectedPage()}
-      </Box>
+    
+      <div>
+      <h1 className='title'>Quality Assuarance and Quality Control Page</h1>
+      {/* <Link to='/Profile'>Go to profile page</Link> */}
+      <br></br>
+      {/* <Link to='/About'>Go to About page</Link><br></br> */}
+      <h2 className='subtitle'>We love to hear from you !</h2>
+      <div class="Button1-container">
+      <Button className='Button1' onClick={() => navigate('/quality-assurance/AddConcern')}>Add Your Review</Button>
+      <Button className='Button1' onClick={() => navigate('/quality-assurance/UserConcerns')}>View All Reviews</Button>
+      </div>
+      <div class="Button1-container">
+      <Button className='Button2' onClick={() => navigate('/quality-assurance/ContactUs')}>Contact Us</Button>
+      </div>
+
+    </div>
+    <Box className="rating-container"
+      sx={{
+        '& > legend': { mt: 2 },
+      }}
+    >
+      <Typography className="rating-legend" component="legend">
+        Rate Us
+      </Typography>
+      <StyledRating
+        className="rating-stars"
+        name="customized-10"
+        defaultValue={2}
+        max={10}
+      />
+    </Box>
     </>
   );
+
 }

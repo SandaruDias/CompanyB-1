@@ -5,7 +5,13 @@ import CustomerOrder from './customerOrder/Dashboard.jsx';
 import Finance from './financeManagement/Dashboard.jsx';
 import HumanResources from './humanResource/Dashboard.jsx';
 import Manufacturing from './manufacturing/Dashboard.jsx';
+
 import QualityAssurance from './qualityAssurance/Dashboard.jsx';
+import AddConcern from "./qualityAssurance/components07/AddConcerns.jsx";
+import UserConcerns from "./qualityAssurance/components07/UserConcerns.jsx";
+import SearchResults from "./qualityAssurance/components07/SearchResults.jsx";
+import ContactUs from "./qualityAssurance/components07/ContactUs.jsx";
+
 import Sales from './salesManagement/Dashboard.jsx';
 import TrainingSimulation from './trainingSimulation/Dashboard.jsx';
 import TrainingSimulationManagerPortal from './trainingSimulation/ManagerPortal.jsx';
@@ -24,7 +30,15 @@ function App() {
         <Route path="/finance-management" element={<Finance />} />
         <Route path="/hr-management" element={<HumanResources />} />
         <Route path="/manufacturing" element={<Manufacturing />} />
-        <Route path="/quality-assurance" element={<QualityAssurance />} />
+        
+        <Route path="/quality-assurance" element={<QualityAssurance/>}/>
+        <Route path="/quality-assurance/AddConcern" element={<AddConcern />} />
+        <Route path="/quality-assurance/UserConcerns" element={<UserConcerns />} />
+        <Route path="/quality-assurance/UserConcerns/search-results" element={<SearchResults/>} />
+        <Route path="/quality-assurance/ContactUs" element={<ContactUs />} />
+
+
+        
         <Route path="/sales-management" element={<Sales />} />
         <Route path="/training-simulation" element={<TrainingSimulation />} />
         <Route path="/traning-simulation/training" element={<TrainingPage/>}/>
