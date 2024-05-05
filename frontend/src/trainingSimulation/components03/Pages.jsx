@@ -3,6 +3,7 @@ import FileUploadform from "./FileUploadform";
 import TrainingPage from './TrainingPage/TrainingPage'
 import RecipeReviewCard from "./RecipeReviewCard";
 import { Link } from 'react-router-dom';
+import Adminprototype from "../Adminprototype";
 
 // Define components for different pages
 export function DashboardPage() {
@@ -37,5 +38,9 @@ export function CoursesPage() {
 }
 
 export function PrototypePage() {
-    return <Typography variant="h5">Protoyping Form</Typography>;
+    return (
+        <div>
+            <Adminprototype/>
+        </div>
+    );
 }
