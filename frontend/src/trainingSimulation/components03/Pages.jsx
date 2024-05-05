@@ -1,6 +1,7 @@
 import { Container, CssBaseline, Typography } from "@material-ui/core";
 import FileUploadform from "./FileUploadform";
 import TrainingPage from './TrainingPage/TrainingPage'
+import ManagerLogin from './ManagerLogin/ManagerLogin'
 import RecipeReviewCard from "./RecipeReviewCard";
 import { Link } from 'react-router-dom';
 import Adminprototype from "../Adminprototype";
@@ -43,4 +44,13 @@ export function PrototypePage() {
             <Adminprototype/>
         </div>
     );
+    return <Typography variant="h5">Protoyping Form</Typography>;
+}
+
+export function ManagerPage() {
+    return (
+        <div>
+            <ManagerLogin />
+        </div>
+    )
 }

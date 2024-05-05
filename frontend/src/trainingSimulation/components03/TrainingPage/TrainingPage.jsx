@@ -3,6 +3,7 @@ import './TrainingPage.css'
 
 import React from 'react'
 
+
 function TrainingPage() {
   return (
     <>
