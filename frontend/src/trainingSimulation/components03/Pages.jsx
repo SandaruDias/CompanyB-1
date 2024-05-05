@@ -4,6 +4,7 @@ import TrainingPage from './TrainingPage/TrainingPage'
 import ManagerLogin from './ManagerLogin/ManagerLogin'
 import RecipeReviewCard from "./RecipeReviewCard";
 import { Link } from 'react-router-dom';
+import Adminprototype from "../Adminprototype";
 
 // Define components for different pages
 export function DashboardPage() {
@@ -38,6 +39,11 @@ export function CoursesPage() {
 }
 
 export function PrototypePage() {
+    return (
+        <div>
+            <Adminprototype/>
+        </div>
+    );
     return <Typography variant="h5">Protoyping Form</Typography>;
 }
 

@@ -119,7 +119,6 @@ export default function Dashboard() {
             <Drawer open={open} anchor="right" onClose={toggleSlider}>
               {sideList()}
             </Drawer>
-            
           </Toolbar>
         </AppBar>
       </Box>

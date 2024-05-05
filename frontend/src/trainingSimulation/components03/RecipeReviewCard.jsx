@@ -20,6 +20,8 @@ import prototype from "./prototype.jpg";
 import training from "./training.jpg";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import Adminprototype from "../Adminprototype";
+import Customerprototype from "../Customerprototype";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -40,15 +42,16 @@ export default function RecipeReviewCard() {
   };
 
   return (
-    <Grid
-      container
-      component="main"
-      direction="row"
-      justifyContent="center"
-      alignItems="center"
-      sx={{ mt: 5 }}
-    >
-      <CssBaseline />
+    <>
+      <Grid
+        container
+        component="main"
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        sx={{ mt: 5 }}
+      >
+        <CssBaseline />
 
       <Grid item xs={12} sm={4}>
         {" "}
