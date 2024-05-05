@@ -150,13 +150,8 @@ export default function Dashboard() {
       </Box>
       <div style={containerStyle}></div>
       </div>
-
-   
     </>
   );
-  
-
- 
 }
 
 

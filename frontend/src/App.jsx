@@ -7,8 +7,10 @@ import HumanResources from './humanResource/Dashboard.jsx';
 import Manufacturing from './manufacturing/Dashboard.jsx';
 import QualityAssurance from './qualityAssurance/Dashboard.jsx';
 import Sales from './salesManagement/Dashboard.jsx';
+import OrderPlacement from './salesManagement/components08/CustomerForm.jsx'
 import TrainingSimulation from './trainingSimulation/Dashboard.jsx';
 import SalesReport from './salesManagement/components08/DateRangePickerComp.jsx';
+
 
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
         <Route path="/sales-management/sales-report" element={<SalesReport/>}/>
     
   
+        <Route path="/sales-management" element={<Sales />} />
+        <Route path="/sales-management/order-place" element={<OrderPlacement/>}/>
         <Route path="/training-simulation" element={<TrainingSimulation />} />
 
       </Routes>
