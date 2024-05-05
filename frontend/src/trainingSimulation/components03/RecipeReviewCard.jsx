@@ -22,9 +22,11 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Adminprototype from "../Adminprototype";
 import Customerprototype from "../Customerprototype";
+import { useNavigate } from "react-router-dom"; 
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
+  const navigate = useNavigate();
   return <IconButton {...other} />;
 })(({ theme, expand }) => ({
   transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
@@ -91,7 +93,7 @@ export default function RecipeReviewCard() {
               <ShareIcon />
             </IconButton>
             <Stack spacing={2} direction="row">
-              <Button variant="contained">Add Request</Button>
+              <Button variant="contained" onClick={()=>navigate("/training-simulation/prototypes")} >Add Request</Button>
             </Stack>
             <ExpandMore
               expand={expanded}
@@ -155,7 +157,7 @@ export default function RecipeReviewCard() {
               <ShareIcon />
             </IconButton>
             <Stack spacing={2} direction="row">
-              <Button variant="contained">Add Request</Button>
+              <Button variant="contained" onClick={()=>navigate("/training-simulation/simulations")}>Add Request</Button>
             </Stack>
             <ExpandMore
               expand={expanded}
@@ -218,7 +220,7 @@ export default function RecipeReviewCard() {
               <ShareIcon />
             </IconButton>
             <Stack spacing={2} direction="row">
-              <Button variant="contained">Entroll</Button>
+              <Button variant="contained" onClick={()=>navigate("/traning-simulation/training")}>Entroll</Button>
             </Stack>
             <ExpandMore
               expand={expanded}
