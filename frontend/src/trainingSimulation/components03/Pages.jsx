@@ -1,23 +1,41 @@
-import { Typography } from "@material-ui/core";
-
+import { Container, CssBaseline, Typography } from "@material-ui/core";
+import FileUploadform from "./FileUploadform";
+import TrainingPage from './TrainingPage/TrainingPage'
+import RecipeReviewCard from "./RecipeReviewCard";
+import { Link } from 'react-router-dom';
 
 // Define components for different pages
 export function DashboardPage() {
     return (
-        <>
-            <Typography variant="h5">Home Page Content Training & Simulation</Typography>
-        </>
+        <div>
+            <RecipeReviewCard />
+        </div>
     )
 }
 
-export function SamplePage() {
-    return <Typography variant="h5">Resume Page Content Training & Simulation</Typography>;
+export function SimulationsPage() {
+    return(
+        <div>
+            <nav>
+                <Link to="/training-simulation">Back to Dashboard</Link> {/* Ensure the path matches your routing setup */}
+            </nav>
+            <Container component="main" maxWidth="xs">
+                <CssBaseline />
+                <FileUploadform />
+            </Container>
+        </div>
+    );
 }
 
-export function ProfilePage() {
-    return <Typography variant="h5">Portfolio Page Content Training & Simulation</Typography>;
+
+export function CoursesPage() {
+    return (
+        <div>
+            <TrainingPage />
+        </div>
+    )
 }
 
-export function LogoutPage() {
-    return <Typography variant="h5">Contacts Page Content Training & Simulation</Typography>;
+export function PrototypePage() {
+    return <Typography variant="h5">Protoyping Form</Typography>;
 }

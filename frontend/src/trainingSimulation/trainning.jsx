@@ -22,7 +22,7 @@ import {
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
-import { DashboardPage, ProfilePage, SimulationsPage,LogoutPage } from "./components03/Pages"
+import { DashboardPage, ProfilePage, SamplePage,LogoutPage } from "./components03/Pages"
 
 
 // Define styles
@@ -70,9 +70,9 @@ export default function Dashboard() {
       <List>
         {[
           { Icon: DashboardIcon, text: "Dashboard" },
-          { Icon: AssignmentInd, text: "Simulations" },
-          { Icon: PersonIcon, text: "Courses" },
-          { Icon: LogoutIcon, text: "Prototyping" }
+          { Icon: AssignmentInd, text: "Sample" },
+          { Icon: PersonIcon, text: "Profile" },
+          { Icon: LogoutIcon, text: "Log out" }
         ].map((item, index) => (
           <ListItem
             className={classes.listItem}
@@ -95,12 +95,12 @@ export default function Dashboard() {
     switch (selectedPage) {
       case "Dashboard":
         return <DashboardPage />;
-      case "Simulations":
-        return <SimulationsPage />;
-      case "Courses":
-        return <CoursesPage />;
-      case "Prototyping":
-        return <PrototypePage />;
+      case "Sample":
+        return <SamplePage />;
+      case "Profile":
+        return <ProfilePage />;
+      case "Log Out":
+        return <LogoutPage />;
       default:
         return <DashboardPage />;
     }

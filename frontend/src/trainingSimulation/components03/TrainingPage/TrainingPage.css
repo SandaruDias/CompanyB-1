@@ -1,0 +1,21 @@
+.card-row {
+    justify-content: center;
+    display: flex;
+  }
+  
+  
+.header{
+    font-family: Montserrat;
+    font-weight: bolder;
+    letter-spacing: -1px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.description{
+    font-family: Montserrat;
+    justify-content: center;
+    display:flex;
+
+}

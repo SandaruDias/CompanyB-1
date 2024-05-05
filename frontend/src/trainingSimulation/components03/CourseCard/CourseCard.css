@@ -1,0 +1,74 @@
+.card-container{
+
+    width: 20rem;
+    border-radius: 0.5rem;
+    box-shadow: 1px 6px 6px #cccccc;
+    display: flex;
+    flex-direction:column;
+    margin: 0.5rem;
+    background-color: white;
+    height: fit-content;
+
+}
+
+
+.card-img{
+    width:100%;
+    height : 200px;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.card-title{
+    margin: 0.5rem 5%;
+    font-family: poppins;
+    letter-spacing: -1px; 
+    font-size:x-large;
+
+}
+
+.card-description{
+
+    margin:0.5rem 5%;
+    font-size: small;
+    font-family: poppins;
+    text-align: justify;
+}
+
+.card-btn{
+
+    
+    text-align: center;
+    width: 90%;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    background-color: #2563eb;
+    color: white;
+    text-decoration: none;
+    margin: 1rem;
+    font-size: larger;
+    cursor: pointer; /* Cursor style */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+}
+  
+.card-btn:hover {
+    background-color: #005aba; /* Button background color on hover */
+}
+
+.card-input {
+    width: 90%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+    margin: 0 1rem ;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+  
+.card-input:focus {
+    border-color: #66afe9;
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}
+  
+
