@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import backgroundImage from "../assets/" 
 import {
   AppBar,
   Toolbar,
@@ -25,7 +27,8 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
 import { DashboardPage, ProfilePage, SamplePage,LogoutPage } from "./components08/Pages";
 
-import DateRangePickerComp from "./components08/DateRangePickerComp.jsx";
+
+
 // Define styles
 const useStyles = makeStyles((theme) => ({
   menuSliderContainer: {
@@ -108,8 +111,20 @@ export default function Dashboard() {
     }
   };
 
+  const containerStyle = {
+    width: '100vw', // Set container width to viewport width
+    height: '100vh', // Set container height to viewport height
+    background: `url(${backgroundImage}) no-repeat center center fixed`, // Set the image as background
+    backgroundSize: 'cover', // Cover the entire container with the background image
+  };
+
+
+
   return (
     <>
+    <div style={containerStyle}>
+      <h1>Welcome to My Website!</h1>
+    </div>
       <CssBaseline />
       <Box component="nav">
         <AppBar position="static">
@@ -121,17 +136,19 @@ export default function Dashboard() {
             <Drawer open={open} anchor="right" onClose={toggleSlider}>
               {sideList()}
             </Drawer>
-          
+
           </Toolbar>
         </AppBar>
       </Box>
+      <button style={{ margin: '10px', padding: '5px 10px' }}> <Link to="/sales-management/sales-report">Sales Report</Link> </button>
+      <button style={{ margin: '10px', padding: '5px 10px' }} className="home-button"> <Link to="/sales-management/sales-report">Invoices</Link> </button>
+      <button style={{ margin: '10px', padding: '5px 10px' }} className="home-button"> <Link to="/sales-management/sales-report">Order Placement</Link> </button>
       <Box style={{ padding: 20 }}>
         {renderSelectedPage()}
       </Box>
       <h1>
             Select date
       </h1>
-      <DateRangePickerComp/>
       
     </>
   );
