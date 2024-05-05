@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Table,
   TableHead,
@@ -9,6 +9,7 @@ import {
   Paper,
   makeStyles,
 } from "@material-ui/core";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,6 +52,22 @@ const mockApplicants = [
 
 const ApplicatData = () => {
   const classes = useStyles();
+  const [applicantData, setApplicantData] = useState([]);
+
+
+  useEffect(() => {
+    const fetchApplicantData = async () => {
+      try {
+        const response = await axios.get('http://localhost:8090/hr/applicant/getAll');
+        setApplicantData(response.data);
+      } catch (error) {
+        console.error('Error fetching Applicant data:', error);
+      }
+    };
+  
+    fetchApplicantData();
+  }, []);
+
 
   return (
     <Paper className={classes.root}>
@@ -69,12 +86,12 @@ const ApplicatData = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {mockApplicants.map(applicant => (
+            {applicantData && applicantData.map((applicant, index) => (
               <TableRow key={applicant.id}>
-                <TableCell className={classes.tableCell}>{applicant.id}</TableCell>
-                <TableCell className={classes.tableCell}>{applicant.name}</TableCell>
+                <TableCell className={classes.tableCell}>{index+1}</TableCell>
+                <TableCell className={classes.tableCell}>{applicant.firstName + " " + applicant.lastName}</TableCell>
                 <TableCell className={classes.tableCell}>{applicant.email}</TableCell>
-                <TableCell className={classes.tableCell}>{applicant.positionApplied}</TableCell>
+                <TableCell className={classes.tableCell}>{applicant.position}</TableCell>
                 <TableCell className={classes.tableCell}>{applicant.division}</TableCell> {/* Render division */}
               </TableRow>
             ))}
