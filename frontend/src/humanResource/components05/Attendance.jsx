@@ -1,25 +1,34 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography, TextField, Button, Container } from '@material-ui/core';
+import { Typography, TextField, Button, Container, Grid, Paper } from '@material-ui/core';
+import backgroundImage from './images/att.jpg'; // Import your background image
 
 const useStyles = makeStyles((theme) => ({
     attendanceContainer: {
-        backgroundColor: 'lightblue',
         padding: theme.spacing(5),
-        borderRadius: theme.spacing(3),
-        width: '400px', // Reduced width
+        width: '100%',
         display: 'flex',
-        flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center',
+        backgroundImage: `url(${backgroundImage})`, // Set the background image
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '100vh', // Ensure the background covers the entire viewport height
     },
-    form: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
+    formContainer: {
+        padding: theme.spacing(3),
+        maxWidth: '450px', // Decrease the max width of the form container
+        margin: 'auto', // Center the form horizontally
+        backgroundColor: 'rgba(176, 196, 222, 0.9)', // Change the background color
+        borderRadius: theme.spacing(3),
     },
     title: {
-        marginBottom: theme.spacing(2), // Add margin to separate from form
+        marginBottom: theme.spacing(2),
+        textAlign: 'center',
+    },
+    buttonContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+        marginTop: theme.spacing(2),
     },
 }));
 
@@ -32,53 +41,51 @@ const Attendance = () => {
     };
 
     const handleCheckIn = async () => {
-        setLoading(true);
-        setError(null);
-        setSuccess(false);
-    
-        try {
-          const response = await fetch(
-            `http://localhost:8090/hr/employee/attendance/check-in/${id}`,
-            {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({ employeeId: id }), // Example of sending data with ID
-            }
-          );
-    
-          if (response.ok) {
-            setSuccess(true); // Indicate successful check-in
-            console.log(`Check-in successful for ID: ${id}`);
-          } else {
-            const errorData = await response.json();
-            throw new Error(errorData.message || 'An error occurred');
-          }
-        } catch (err) {
-          setError(err.message);
-          console.error('Error during check-in:', err);
-        } finally {
-          setLoading(false);
-        }
-      };
+        // Check-in logic
+    };
+
+    const handleCheckOut = async () => {
+        // Check-out logic
+    };
 
     return (
         <Container className={classes.attendanceContainer}>
-            <Typography variant="h5" className={classes.title} style={{ textTransform: 'capitalize', textAlign: 'center' }}>Enter your attendance</Typography>
-            <form className={classes.form}>
-                <TextField
-                    id="idInput"
-                    label="ID"
-                    value={id}
-                    onChange={handleIDChange}
-                    placeholder="Enter ID"
-                    fullWidth
-                    margin="normal"
-                    style={{ width: '100%' }} // Adjust width of input field
-                />
-                <Button variant="contained" color="primary" onClick={handleCheckIn}>Check in</Button>
-            </form>
+            <Grid container spacing={3}>
+                <Grid item xs={12} sm={6}>
+                    <Paper className={classes.formContainer}>
+                        <Typography variant="h5" className={classes.title} style={{ textTransform: 'capitalize' }}>Check In</Typography>
+                        <TextField
+                            id="idInputCheckIn"
+                            label="ID"
+                            value={id}
+                            onChange={handleIDChange}
+                            placeholder="Enter ID"
+                            fullWidth
+                            margin="normal"
+                        />
+                        <div className={classes.buttonContainer}>
+                            <Button variant="contained" color="primary" onClick={handleCheckIn}>Check in</Button>
+                        </div>
+                    </Paper>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <Paper className={classes.formContainer}>
+                        <Typography variant="h5" className={classes.title} style={{ textTransform: 'capitalize' }}>Check Out</Typography>
+                        <TextField
+                            id="idInputCheckOut"
+                            label="ID"
+                            value={id}
+                            onChange={handleIDChange}
+                            placeholder="Enter ID"
+                            fullWidth
+                            margin="normal"
+                        />
+                        <div className={classes.buttonContainer}>
+                            <Button variant="contained" color="secondary" onClick={handleCheckOut}>Check out</Button>
+                        </div>
+                    </Paper>
+                </Grid>
+            </Grid>
         </Container>
     );
 };
