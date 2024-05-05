@@ -22,7 +22,7 @@ import {
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
-import { DashboardPage, ProfilePage, SimulationsPage,LogoutPage } from "./components03/Pages"
+import { DashboardPage, CoursesPage, SimulationsPage,PrototypePage } from "./components03/Pages"
 
 
 // Define styles
