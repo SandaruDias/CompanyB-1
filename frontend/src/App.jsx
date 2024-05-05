@@ -12,7 +12,7 @@ import TrainingSimulationManagerPortal from './trainingSimulation/ManagerPortal.
 import { SimulationsPage } from "./trainingSimulation/components03/Pages.jsx";
 import TrainingPage from "./trainingSimulation/components03/TrainingPage/TrainingPage.jsx";
 import SimulationPage from "./trainingSimulation/components03/FileUploadform.jsx";
-import PrototypePage from "./trainingSimulation/components03/";
+import PrototypePage from "./trainingSimulation/Customerprototype.jsx";
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
         <Route path="/training-simulation" element={<TrainingSimulation />} />
         <Route path="/traning-simulation/training" element={<TrainingPage/>}/>
         <Route path="/training-simulation/simulations" element={<SimulationPage/>}/>
-        <Route path="/training-simulation/prototypes" element={<Prototype/>}/>
+        <Route path="/training-simulation/prototypes" element={<PrototypePage/>}/>
         <Route path="/training-simulation/managerportal" element={<TrainingSimulationManagerPortal />} />
       </Routes>
     </Router>
