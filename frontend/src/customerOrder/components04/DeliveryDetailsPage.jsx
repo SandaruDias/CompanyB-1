@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Typography, Grid, TextField, Box, makeStyles, Button, Checkbox } from "@material-ui/core";
+import { Typography, Grid, TextField, Box, makeStyles, Button, Checkbox, Paper } from "@material-ui/core";
 import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
@@ -39,11 +39,12 @@ export function DeliveryDetailsPage({setPage}) {
         <>
          <br></br>
          <br></br>
-            <Typography variant="h5" alignItems="center">Delivery Details</Typography>
+         <Paper style={{padding: 50, width: 900 }} elevation={5} >
+            <Typography variant="h4" style={{fontWeight:700}} alignItems="center">Delivery Details</Typography>
             <br></br>
             <br></br>
             <br></br>
-            <br></br>
+            <br></br> 
             <Typography variant="h6">Delivery Address:</Typography>
             <Grid container spacing={2}  alignItems="center">
                 <Grid item>
@@ -87,9 +88,13 @@ export function DeliveryDetailsPage({setPage}) {
             </Grid>
             </div>
             <br></br>
+            
             <br></br>
             <br></br>
+
             <br></br>
+            </Paper>
+            <Paper style={{padding: 50, width: 900, marginTop: 20 }} elevation={5} >
             <Typography variant="h6">Your order</Typography>
             <br></br>
             <br></br>
@@ -98,6 +103,7 @@ export function DeliveryDetailsPage({setPage}) {
             <br></br>
             <br></br>
             <Typography variant="h6">Total ($) = </Typography>
+            </Paper>
             <Button variant="contained" color="primary" onClick={onSubmitForm} className={classes.submitButton}>
                 Pay now
             </Button>

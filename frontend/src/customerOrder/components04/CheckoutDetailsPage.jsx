@@ -11,6 +11,7 @@ import {
     DialogTitle,
     DialogContent,
     DialogActions,
+    Paper
 } from "@material-ui/core";
 import { useNavigate } from 'react-router-dom';
 
@@ -80,6 +81,7 @@ export function CheckoutDetailsPage() {
         <>
             <br></br>
             <br></br>
+            <Paper style={{padding: 50, width: 900 }} elevation={5} >
             <Typography variant="h5" alignItems="center">Checkout Details</Typography>
             <br></br>
             <br></br>
@@ -115,6 +117,7 @@ export function CheckoutDetailsPage() {
                     <TextField type="Address" variant="outlined" />
                 </Grid>
             </Grid>
+            </Paper>
             <Button variant="contained" color="primary" onClick={handleOpenFeedback} className={classes.submitButton}>
                 feedback
             </Button>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Typography, Grid, TextField, Box, makeStyles, Button, Checkbox } from "@material-ui/core";
+import { Typography, Grid, TextField, makeStyles, Button, Checkbox, Paper } from "@material-ui/core";
 import { useNavigate } from 'react-router-dom';
 import { DeliveryDetailsPage } from './DeliveryDetailsPage';
 import { CheckoutDetailsPage } from './CheckoutDetailsPage';
@@ -39,11 +39,12 @@ export function DashboardPage() {
     };
 
     return (
-        <>{
+        <div style={{marginLeft:'20%'}} >{
             page === 0 ?         <>
             <br></br>
             <br></br>
-               <Typography variant="h5">Order Details</Typography>
+            <Paper style={{padding: 50, width: 900 }} elevation={5} >
+               <Typography variant="h4" style={{fontWeight:700}} >Order Details</Typography>
                <br></br>
                <input type="file" />
                <br></br>
@@ -79,6 +80,7 @@ export function DashboardPage() {
                        <TextField type="number" variant="outlined" />
                    </Grid>
                </Grid>
+               </Paper>
                <br></br>
                <br></br>
                <Button variant="contained" color="primary" onClick={onSubmitForm} className={classes.submitButton}>
@@ -97,7 +99,7 @@ export function DashboardPage() {
    </div>
            </>: page === 1 ? <DeliveryDetailsPage setPage={setPage} /> : <CheckoutDetailsPage setPage={setPage} />
         }
-        </>
+        </div>
     )
 }
 
