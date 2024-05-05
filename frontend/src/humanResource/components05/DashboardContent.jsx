@@ -1,53 +1,93 @@
 import React from 'react';
-import { Typography, Container, Grid, Card, CardContent, CardHeader } from '@material-ui/core';
+import { Container, Grid, Typography, Card, CardContent } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import welcomeBackgroundImage from './images/hr.jpg';
 
 const useStyles = makeStyles((theme) => ({
+  background: {
+    minHeight: '100vh',
+    position: 'relative',
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
+    backgroundImage: `url(${welcomeBackgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  },
   welcomeMessage: {
+    color: '#333333', // Light black color
     marginBottom: theme.spacing(4),
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: '3rem',
+    backgroundColor: '#F0F0F0', // Light gray background color
+    padding: theme.spacing(2),
+    borderRadius: theme.spacing(1),
   },
-  card: {
-    height: '100%',
+  distributionContainer: {
+    textAlign: 'center',
   },
-  cardContent: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
+  distributionTitle: {
+    fontWeight: 'bold',
+    marginBottom: theme.spacing(2),
   },
-  employeePhoto: {
-    width: 100,
-    height: 100,
-    borderRadius: '50%',
-    marginBottom: theme.spacing(1),
+  divisionCard: {
+    background: '#008080', // Teal color
+    color: theme.palette.common.white,
+    minHeight: 150,
+  },
+  divisionName: {
+    fontSize: '1.5rem',
+    fontWeight: 'bold',
+  },
+  employeeCount: {
+    fontSize: '2rem',
+    fontWeight: 'bold',
   },
 }));
 
 const DashboardContent = () => {
   const classes = useStyles();
 
-  return (
-    <Container>
-      <Typography variant="h4" className={classes.welcomeMessage}>
-        Welcome to the HR System
-      </Typography>
-      
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6} md={4}>
-          <Card className={classes.card}>
-            <CardHeader title="Employee Directory" />
-            <CardContent className={classes.cardContent}>
-              {/* Display employee photo, name, and job title */}
-              <img src="/employee-photo.jpg" alt="Employee" className={classes.employeePhoto} />
-              <Typography variant="h6">John Doe</Typography>
-              <Typography variant="body2" color="textSecondary">Software Engineer</Typography>
-            </CardContent>
-          </Card>
-        </Grid>
+  // Example division data
+  const divisions = [
+    { name: 'Engineering', employeeCount: 50 },
+    { name: 'Sales', employeeCount: 30 },
+    { name: 'Marketing', employeeCount: 25 },
+    { name: 'Human Resources', employeeCount: 15 },
+  ];
 
-        {/* Add more cards for other sections like Quick Links, Upcoming Events, etc. */}
-      </Grid>
-    </Container>
+  return (
+    <div className={classes.background}>
+      <Container>
+        <Typography variant="h2" align="center" gutterBottom className={classes.welcomeMessage}>
+          Welcome to the HR Management System
+        </Typography>
+        <div className={classes.distributionContainer}>
+          <Typography variant="h4" align="center" className={classes.distributionTitle}>
+            Employee Distribution by Division
+          </Typography>
+          <Grid container spacing={3} justify="center">
+            {divisions.map((division, index) => (
+              <Grid key={index} item xs={12} sm={6} md={3}>
+                <Card className={classes.divisionCard}>
+                  <CardContent>
+                    <Typography variant="h6" className={classes.divisionName}>
+                      {division.name}
+                    </Typography>
+                    <Typography variant="h4" className={classes.employeeCount}>
+                      {division.employeeCount}
+                    </Typography>
+                    <Typography variant="body2" color="inherit">
+                      Employees
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </div>
+      </Container>
+    </div>
   );
 };
 
