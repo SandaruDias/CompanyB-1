@@ -64,7 +64,7 @@ const AdminLoginPage = () => {
                         navigate('/manufacturing');
                         break;
                     case 'Training (Skills Development), Prototyping, Product/Process Development and Simulation System':
-                        navigate('/training-simulation');
+                        navigate('/training-simulation/managerportal');
                         break;
                     case 'Human Resource Management System':
                         navigate('/hr-management');
