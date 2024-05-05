@@ -7,7 +7,7 @@ import HumanResources from './humanResource/Dashboard.jsx';
 import Manufacturing from './manufacturing/Dashboard.jsx';
 import QualityAssurance from './qualityAssurance/Dashboard.jsx';
 import Sales from './salesManagement/Dashboard.jsx';
-import OrderPlacement from './salesManagement/components08/customerForm.jsx'
+import OrderPlacement from './salesManagement/components08/CustomerForm.jsx'
 import TrainingSimulation from './trainingSimulation/Dashboard.jsx';
 import SalesReport from './salesManagement/components08/DateRangePickerComp.jsx';
 
