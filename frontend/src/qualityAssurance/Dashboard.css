@@ -1,0 +1,46 @@
+
+.title {
+    color: #333;
+    font-size: 3em; /* Increase the font size */
+    text-align: center; /* Center the text */
+    padding: 20px; /* Add some space around the text */
+    background-color: #f9f9f9; /* Add a light background color */
+    border-radius: 10px; /* Round the corners of the background */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+
+.subtitle {
+    color: #3498db;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.title:hover {
+    color: #007BFF; /* Change color on hover */
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+
+
+.Button1-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+.Button1 {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+    
+}
