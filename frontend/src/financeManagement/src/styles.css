@@ -1,0 +1,97 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #E2E2E2; /* Light gray for the general background */
+  color: #212A31; /* Dark blue for text, ensuring good readability */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 15px; /* Increased padding for better readability */
+  text-align: left;
+  border-bottom: 1px solid #748D92; /* Medium gray-blue for subtle borders */
+}
+
+th {
+  background-color: #124E66; /* Dark teal for table headers */
+  color: #FFFFFF; /* White text for better contrast and visibility */
+}
+
+button {
+  background-color: #124E66; /* Dark teal used for primary action buttons */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border-radius: 5px; /* Rounded borders for a modern look */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+button:hover {
+  background-color: #092E40; /* A darker shade for hover state */
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  background-color: #748D92; /* Medium gray-blue for the navigation bar */
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 15px;
+
+}
+nav li {
+  cursor: pointer;
+}
+
+nav ul ul {
+  padding-left: 20px;
+}
+
+
+nav a {
+  text-decoration: none;
+  color: #FFFFFF; /* White text for readability */
+  padding: 10px; /* Padding for better clickability */
+  transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+nav a:hover {
+  color: #D3D9D4; /* Light gray for hover state */
+  text-decoration: none; /* No underline on hover, cleaner look */
+}
+
+/* Additional styles for better UX */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background-color: #FFFFFF; /* Background for content areas */
+}
+
+/* Improving the visibility of alert messages */
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.alert-error {
+  background-color: #E53935; /* Red for error alerts */
+  color: white;
+}
+
+.alert-success {
+  background-color: #4CAF50; /* Green for success alerts */
+  color: white;
+}
