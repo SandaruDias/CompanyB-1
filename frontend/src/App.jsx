@@ -36,9 +36,6 @@ function App() {
         <Route path="/quality-assurance/UserConcerns" element={<UserConcerns />} />
         <Route path="/quality-assurance/UserConcerns/search-results" element={<SearchResults/>} />
         <Route path="/quality-assurance/ContactUs" element={<ContactUs />} />
-
-
-        
         <Route path="/sales-management" element={<Sales />} />
         <Route path="/training-simulation" element={<TrainingSimulation />} />
         <Route path="/traning-simulation/training" element={<TrainingPage/>}/>
