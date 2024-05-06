@@ -7,6 +7,7 @@ import {
   TableCell,
   Typography,
   Paper,
+  Button,
   makeStyles,
 } from "@material-ui/core";
 import axios from "axios";
@@ -42,32 +43,79 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     fontSize: "1.1rem",
   },
+  rejectButton: {
+    backgroundColor: "#FF6347", 
+    color: "#FFFFFF",
+    "&:hover": {
+      backgroundColor: "#FF4500", 
+    },
+    marginRight: theme.spacing(1), 
+  },
+  createButton: {
+    backgroundColor: "#32CD32", 
+    color: "#FFFFFF",
+    "&:hover": {
+      backgroundColor: "#228B22", 
+    },
+  },
 }));
-
-const mockApplicants = [
-  { id: 1, name: "Applicant 1", email: "applicant1@example.com", positionApplied: "Software Developer", division: "IT" },
-  { id: 2, name: "Applicant 2", email: "applicant2@example.com", positionApplied: "HR Manager", division: "HR" },
-  // Add more mock applicants as needed
-];
 
 const ApplicatData = () => {
   const classes = useStyles();
   const [applicantData, setApplicantData] = useState([]);
 
-
   useEffect(() => {
     const fetchApplicantData = async () => {
       try {
-        const response = await axios.get('http://localhost:8090/hr/applicant/getAll');
+        const response = await axios.get("http://localhost:8090/hr/applicant/getAll");
         setApplicantData(response.data);
       } catch (error) {
-        console.error('Error fetching Applicant data:', error);
+        console.error("Error fetching Applicant data:", error);
       }
     };
-  
+
     fetchApplicantData();
   }, []);
 
+  const handleRejectApplicant = async (nicNo) => {
+    try {
+      await axios.delete(`http://localhost:8090/hr/applicant/delete/${nicNo}`);
+     
+      const response = await axios.get("http://localhost:8090/hr/applicant/getAll");
+      setApplicantData(response.data);
+    } catch (error) {
+      console.error("Error rejecting Applicant:", error);
+    }
+  };
+
+  const handleCreateEmploy = async (applicant) => {
+    try {
+      await axios.post("http://localhost:8090/hr/employee/create", {
+
+        firstName: applicant.firstName,
+        lastName: applicant.lastName,
+        email: applicant.email,
+        position: applicant.position,
+        division: applicant.division,
+        nicNo: applicant.nicNo,
+        birthDay:applicant.birthDay,
+        mobileNo: applicant.mobileNo,
+        gender: applicant.gender,
+        isMarried: applicant.isMarried,
+        userId: applicant.nicNo,
+        recruitedDate: "2024-06-30",
+        salary: 223323,
+        allowance: 424.0,
+        otRate: 434,
+        workingDays: 34.0,
+        courseLevel: "2",
+        address: 'colombo'
+      });
+     
+    } catch (error) {
+      console.error("Error creating employee:", error);
+    }
+  };
 
   return (
     <Paper className={classes.root}>
@@ -82,19 +130,39 @@ const ApplicatData = () => {
               <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Name</TableCell>
               <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Email</TableCell>
               <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Position Applied</TableCell>
-              <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Division</TableCell> {/* New Division column */}
+              <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Division</TableCell>
+              <TableCell className={`${classes.tableCell} ${classes.tableHeader}`}>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {applicantData && applicantData.map((applicant, index) => (
-              <TableRow key={applicant.id}>
-                <TableCell className={classes.tableCell}>{index+1}</TableCell>
-                <TableCell className={classes.tableCell}>{applicant.firstName + " " + applicant.lastName}</TableCell>
-                <TableCell className={classes.tableCell}>{applicant.email}</TableCell>
-                <TableCell className={classes.tableCell}>{applicant.position}</TableCell>
-                <TableCell className={classes.tableCell}>{applicant.division}</TableCell> {/* Render division */}
-              </TableRow>
-            ))}
+            {applicantData &&
+              applicantData.map((applicant) => (
+                <TableRow key={applicant.id}>
+                  <TableCell className={classes.tableCell}>{applicant.nicNo}</TableCell>
+                  <TableCell className={classes.tableCell}>
+                    {applicant.firstName} {applicant.lastName}
+                  </TableCell>
+                  <TableCell className={classes.tableCell}>{applicant.email}</TableCell>
+                  <TableCell className={classes.tableCell}>{applicant.position}</TableCell>
+                  <TableCell className={classes.tableCell}>{applicant.division}</TableCell>
+                  <TableCell className={classes.tableCell}>
+                    <Button
+                      variant="contained"
+                      className={classes.rejectButton}
+                      onClick={() => handleRejectApplicant(applicant.nicNo)}
+                    >
+                      Reject
+                    </Button>
+                    <Button
+                      variant="contained"
+                      className={classes.createButton}
+                      onClick={() => handleCreateEmploy(applicant)}
+                    >
+                      Create Employ
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
           </TableBody>
         </Table>
       </Paper>
