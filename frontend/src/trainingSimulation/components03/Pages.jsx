@@ -1,11 +1,9 @@
 import { Container, CssBaseline, Typography } from "@material-ui/core";
 import FileUploadform from "./FileUploadform";
 import TrainingPage from './TrainingPage/TrainingPage'
-import ManagerLogin from './ManagerLogin/ManagerLogin'
 import RecipeReviewCard from "./RecipeReviewCard";
 import { Link } from 'react-router-dom';
 import Customerprototype from "../Customerprototype";
-
 // Define components for different pages
 export function DashboardPage() {
     return (
@@ -47,10 +45,10 @@ export function PrototypePage() {
     
 }
 
-export function ManagerPage() {
+/*export function ManagerPage() {
     return (
         <div>
             <ManagerLogin />
         </div>
     )
-}
+}*/

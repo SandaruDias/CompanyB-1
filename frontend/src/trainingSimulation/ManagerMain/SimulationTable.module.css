@@ -1,0 +1,50 @@
+.tableContainer {
+    margin: 20px;
+    overflow-x: auto;
+    font-family: 'Arial', sans-serif;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #3478a8;
+    color: white;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+    background-color: #ddd;
+}
+
+.loading,
+.error {
+    color: #0b239c;
+    font-size: 24px;
+    text-align: center;
+    padding: 20px;
+}
+.deleteButton {
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.deleteButton:hover {
+    background-color: darkred;
+}
